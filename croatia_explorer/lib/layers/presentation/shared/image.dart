@@ -9,10 +9,7 @@ class CustomImage extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset(assetName,
-    width: width,
-    height: height
-    );
+    return Image.asset(assetName);
   }
 
 }
