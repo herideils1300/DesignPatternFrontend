@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class CustomImage extends StatelessWidget{
   final double width = 0;
   final double height = 0;
-  final String assetName = "";
+  String assetName = "";
 
-  const CustomImage(width, height, String assetName, {super.key});
+  CustomImage(this.assetName, {super.key, width, height});
 
   @override
   Widget build(BuildContext context) {
