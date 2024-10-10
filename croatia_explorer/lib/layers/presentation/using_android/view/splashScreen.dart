@@ -1,13 +1,26 @@
-import 'package:croatia_explorer/layers/presentation/shared/image.dart';
+import 'package:croatia_explorer/layers/presentation/shared/widgets/image.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
 class SplashScreenWidget extends StatefulWidget {
+  const SplashScreenWidget({super.key});
+
   @override
   State<StatefulWidget> createState() => SplashScreenState();
+
+
 }
 
 class SplashScreenState extends State<SplashScreenWidget> {
+  @override
+  void initState() {
+    NavigatorState nState = Navigator.of(context);
+    Future.delayed(const Duration(seconds: 5)).then((_) {
+      nState.pushReplacementNamed("/login");
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,7 +28,7 @@ class SplashScreenState extends State<SplashScreenWidget> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          CustomImage("lib/assets/images/camping_image.png"),
+          const ImageWidget("lib/assets/images/camping_image.png"),
           Container(
             width: 103,
             margin: const EdgeInsets.only(top: 20),
