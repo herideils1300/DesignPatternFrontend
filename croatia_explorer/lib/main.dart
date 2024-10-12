@@ -17,14 +17,15 @@ class MyApp extends StatelessWidget {
       primaryKey: const Color.fromARGB(255, 157, 44, 86),
       secondaryKey: const Color.fromARGB(255, 209, 116, 56),
       tertiaryKey: const Color.fromARGB(255, 23, 28, 38),
+      brightness: Brightness.light
     );
 
     return MaterialApp(
       title: 'Flutter Demo',
       initialRoute: '/',
       routes: {
-        '/': (context) => SplashScreenWidget(),
-        '/login': (context) => LoginScreenWidget(),
+        '/': (context) => const SplashScreenWidget(),
+        '/login': (context) => const LoginScreenWidget(),
         // '/register' : (context) => StatelessWidget(),
         // '/home' : (context) => StatelessWidget(),
         // '/favourites' : (context) => StatelessWidget(),

@@ -25,17 +25,19 @@ class SplashScreenState extends State<SplashScreenWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(primary: true, automaticallyImplyLeading: false),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const ImageWidget("lib/assets/images/camping_image.png"),
-          Container(
-            width: 103,
-            margin: const EdgeInsets.only(top: 20),
-            child: Lottie.asset("lib/assets/animations/loading_dots.json",
-                alignment: Alignment.center),
-          )
-        ],
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const ImageWidget("lib/assets/images/camping_image.png"),
+            Container(
+              width: 103,
+              margin: const EdgeInsets.only(top: 20),
+              child: Lottie.asset("lib/assets/animations/loading_dots.json",
+                  alignment: Alignment.center),
+            )
+          ],
+        ),
       ),
     );
   }

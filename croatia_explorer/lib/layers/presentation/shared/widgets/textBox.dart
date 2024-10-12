@@ -7,21 +7,30 @@ class TextFormFieldWidget extends StatelessWidget {
   // ignore: prefer_function_declarations_over_variables
   FormFieldValidator<String> validation = (String? value) => "";
 
-  TextFormFieldWidget(this.validation, {super.key, controller, required this.label});
+  TextFormFieldWidget(this.validation,
+      {super.key, controller, required this.label});
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      controller: controller,
-      decoration: InputDecoration(
-          labelText: label,
-          labelStyle: Theme.of(context).textTheme.displayMedium,
-          border:  OutlineInputBorder(
-            borderSide: BorderSide(color: Theme.of(context).colorScheme.tertiary),
-              borderRadius: const BorderRadius.all(Radius.circular(10.0))),
-              constraints: const BoxConstraints.expand(width: 380, height: 60)
-              ),
-      validator: validation,
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 24, vertical: 15),
+      child: Column(
+        children: [
+          TextFormField(
+            controller: controller,
+            decoration: InputDecoration(
+                labelText: label,
+                labelStyle: Theme.of(context).textTheme.displayMedium,
+                border: OutlineInputBorder(
+                    borderSide:
+                        BorderSide(color: Theme.of(context).colorScheme.tertiary),
+                    borderRadius:
+                        const BorderRadius.all(Radius.elliptical(20.0, 20.0))),
+                constraints: BoxConstraints.loose(const Size(double.infinity, 60))),
+            validator: validation,
+          ),
+        ],
+      ),
     );
   }
 }
