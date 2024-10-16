@@ -4,16 +4,18 @@ import 'package:flutter/material.dart';
 class TextFormFieldWidget extends StatelessWidget {
   TextEditingController controller = TextEditingController();
   final String label;
+  final EdgeInsets marginInsets;
   // ignore: prefer_function_declarations_over_variables
   FormFieldValidator<String> validation = (String? value) => "";
 
+
   TextFormFieldWidget(this.validation,
-      {super.key, controller, required this.label});
+      {super.key, controller, required this.label, required this.marginInsets});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 24, vertical: 15),
+      margin: marginInsets,
       child: Column(
         children: [
           TextFormField(
@@ -25,7 +27,7 @@ class TextFormFieldWidget extends StatelessWidget {
                     borderSide:
                         BorderSide(color: Theme.of(context).colorScheme.tertiary),
                     borderRadius:
-                        const BorderRadius.all(Radius.elliptical(20.0, 20.0))),
+                        const BorderRadius.all(Radius.circular(20.0))),
                 constraints: BoxConstraints.loose(const Size(double.infinity, 60))),
             validator: validation,
           ),

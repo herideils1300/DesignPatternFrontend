@@ -1,5 +1,8 @@
 import 'package:croatia_explorer/layers/presentation/using_android/view/loginScreen.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/view/passwordResendingScreen.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/view/registerScreen.dart';
 import 'package:croatia_explorer/layers/presentation/using_android/view/splashScreen.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/view/verifyEmailScreen.dart';
 import 'package:flex_seed_scheme/flex_seed_scheme.dart';
 import 'package:flutter/material.dart';
 
@@ -26,12 +29,13 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const SplashScreenWidget(),
         '/login': (context) => const LoginScreenWidget(),
-        // '/register' : (context) => StatelessWidget(),
+         '/register' : (context) => const RegisterScreenWidget(),
         // '/home' : (context) => StatelessWidget(),
         // '/favourites' : (context) => StatelessWidget(),
         // '/profile' : (context) => StatelessWidget(),
-        // '/verifyEmail' : (context) => StatelessWidget(),
-        // '/sendPassword' : (context) => StatelessWidget()
+         '/verifyEmail' : (context) => const VerifyEmailScreenWidget(),
+         '/resetPassword': (context) => const PasswordResendingScreenWidget(),
+        //'/sendPassword' : (context) =>  
       },
       theme: ThemeData.from(
           colorScheme: generatedScheme,
@@ -46,7 +50,7 @@ class MyApp extends StatelessWidget {
           textTheme: const TextTheme(
             titleSmall: TextStyle(
                 fontFamily: 'Montserrat',
-                fontWeight: FontWeight.w500,
+                fontWeight: FontWeight.w600,
                 fontSize: 24),
             titleMedium: TextStyle(
                 fontFamily: 'Montserrat',

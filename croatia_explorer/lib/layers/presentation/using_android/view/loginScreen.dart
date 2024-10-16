@@ -1,4 +1,5 @@
 import 'package:croatia_explorer/layers/data/globalConstants/global.dart';
+import 'package:croatia_explorer/layers/presentation/shared/constants/values.dart';
 import 'package:croatia_explorer/layers/presentation/shared/widgets/button.dart';
 import 'package:croatia_explorer/layers/presentation/shared/widgets/textBox.dart';
 import 'package:croatia_explorer/layers/presentation/shared/widgets/image.dart';
@@ -32,7 +33,10 @@ class LoginScreenState extends State<LoginScreenWidget> {
                   child: Text("Please sign in to your account.",
                       style: Theme.of(context).textTheme.displayMedium),
                 ),
-                TextFormFieldWidget(label: "Email", (String? value) {
+                TextFormFieldWidget(
+                    label: "Email",
+                    marginInsets: GlobalSharedValues.boxInsets(24, 12),
+                    (String? value) {
                   RegExp regex = RegExp(GlobalConstants.emailPattern);
                   if (value!.isEmpty) {
                     return "Please enter an Email.";
@@ -42,7 +46,10 @@ class LoginScreenState extends State<LoginScreenWidget> {
                   }
                   return null;
                 }),
-                TextFormFieldWidget(label: "Password", (String? value) {
+                TextFormFieldWidget(
+                    label: "Password",
+                    marginInsets: GlobalSharedValues.boxInsets(12, 13),
+                    (String? value) {
                   if (value!.isEmpty) {
                     return "Please enter an Email.";
                   }
@@ -51,11 +58,41 @@ class LoginScreenState extends State<LoginScreenWidget> {
                 Container(
                     margin: const EdgeInsets.only(right: 12, bottom: 23.5),
                     alignment: Alignment.centerRight,
-                    child: Text("Forgot password?",
-                        textAlign: TextAlign.end,
-                        style: Theme.of(context).textTheme.displayMedium)),
-                ButtonWidget(onPressed: () {}, textContent: "Sign in"),
-                Text("Don’t have an account? Sign up!", style: Theme.of(context).textTheme.displayMedium)
+                    child: InkWell(
+                      onTap: () => Navigator.of(context).pushNamed("/resetPassword"),
+                      child: Text("Forgot password?",
+                          textAlign: TextAlign.end,
+                          style: Theme.of(context).textTheme.displayMedium),
+                    )),
+                ButtonWidget(
+                  onPressed: () {},
+                  textContent: "Sign in",
+                  marginInsets: GlobalSharedValues.boxInsets(23.5, 23.5),
+                ),
+                Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("Don’t have an account?",
+                          style: Theme.of(context).textTheme.displayMedium),
+                      Container(
+                        margin: const EdgeInsets.only(left: 5.0),
+                        child: InkWell(
+                          onTap: () => Navigator.of(context).pushNamed("/register"),
+                          child: Text(
+                            "Sign up",
+                            style: TextStyle(
+                                fontFamily: Theme.of(context)
+                                    .textTheme
+                                    .displayMedium!
+                                    .fontFamily,
+                                color: Theme.of(context).colorScheme.primary),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
