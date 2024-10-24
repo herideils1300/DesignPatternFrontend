@@ -29,7 +29,7 @@ class SplashScreenState extends State<SplashScreenWidget> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const ImageWidget("lib/assets/images/camping_image.png"),
+            const ImageWidget("lib/assets/images/camping_image.png", fit: BoxFit.fitHeight),
             Container(
               width: 103,
               margin: const EdgeInsets.only(top: 20),

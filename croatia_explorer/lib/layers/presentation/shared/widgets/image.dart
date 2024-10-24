@@ -9,12 +9,12 @@ class ImageWidget extends StatelessWidget {
 
   const ImageWidget(this.assetName,
       {super.key, 
-      this.width = 0, 
-      this.height = 0, 
-      this.fit = BoxFit.contain});
+      this.width = 300, 
+      this.height = 300, 
+      this.fit = BoxFit.contain,});
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset(assetName, fit: fit, height: height);
+    return Image.asset(assetName, fit: fit, height: height, width: width);
   }
 }

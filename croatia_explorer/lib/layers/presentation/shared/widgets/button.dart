@@ -1,4 +1,3 @@
-import 'package:croatia_explorer/layers/presentation/shared/constants/values.dart';
 import 'package:croatia_explorer/layers/presentation/shared/gradients/gradient.dart';
 import 'package:flutter/material.dart';
 

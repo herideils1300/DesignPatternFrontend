@@ -25,7 +25,7 @@ class PasswordResendingScreenState
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-              child: const ImageWidget("lib/assets/images/reset_password_email.png")),
+              child: const ImageWidget("lib/assets/images/reset_password_email.png", fit: BoxFit.fitHeight, height: 200,)),
           Container(
             child: Text(
               textAlign: TextAlign.center,

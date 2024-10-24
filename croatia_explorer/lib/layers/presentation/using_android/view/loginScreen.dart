@@ -67,7 +67,7 @@ class LoginScreenState extends State<LoginScreenWidget> {
                 ButtonWidget(
                   onPressed: () {},
                   textContent: "Sign in",
-                  marginInsets: GlobalSharedValues.boxInsets(23.5, 23.5),
+                  marginInsets: GlobalSharedValues.boxInsets(23.5, 0),
                 ),
                 Center(
                   child: Row(
