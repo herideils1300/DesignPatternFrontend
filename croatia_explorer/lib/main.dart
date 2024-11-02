@@ -1,8 +1,8 @@
-import 'package:croatia_explorer/layers/presentation/using_android/view/loginScreen.dart';
-import 'package:croatia_explorer/layers/presentation/using_android/view/passwordResendingScreen.dart';
-import 'package:croatia_explorer/layers/presentation/using_android/view/registerScreen.dart';
-import 'package:croatia_explorer/layers/presentation/using_android/view/splashScreen.dart';
-import 'package:croatia_explorer/layers/presentation/using_android/view/verifyEmailScreen.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/view/statefulScreens/loginAndSignUp/loginScreen.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/view/statefulScreens/loginAndSignUp/passwordResendingScreen.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/view/statefulScreens/loginAndSignUp/registerScreen.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/view/statefulScreens/loginAndSignUp/splashScreen.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/view/statefulScreens/loginAndSignUp/verifyEmailScreen.dart';
 import 'package:flex_seed_scheme/flex_seed_scheme.dart';
 import 'package:flutter/material.dart';
 
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
     );
 
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter Project',
       initialRoute: '/',
       routes: {
         '/': (context) => const SplashScreenWidget(),
