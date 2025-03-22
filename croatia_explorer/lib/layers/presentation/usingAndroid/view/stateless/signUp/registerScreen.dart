@@ -1,8 +1,8 @@
-import 'package:croatia_explorer/layers/presentation/shared/constants/values.dart';
-import 'package:croatia_explorer/layers/presentation/shared/widgets/appBar.dart';
-import 'package:croatia_explorer/layers/presentation/shared/widgets/button.dart';
-import 'package:croatia_explorer/layers/presentation/shared/widgets/image.dart';
-import 'package:croatia_explorer/layers/presentation/shared/widgets/textBox.dart';
+import 'package:croatia_explorer/layers/presentation/usingAndroid/view/shared/constants/values.dart';
+import 'package:croatia_explorer/layers/presentation/usingAndroid/view/shared/widgets/appBar.dart';
+import 'package:croatia_explorer/layers/presentation/usingAndroid/view/shared/widgets/button.dart';
+import 'package:croatia_explorer/layers/presentation/usingAndroid/view/shared/widgets/image.dart';
+import 'package:croatia_explorer/layers/presentation/usingAndroid/view/shared/widgets/textBox.dart';
 import 'package:flutter/material.dart';
 
 class RegisterScreenWidget extends StatefulWidget {
@@ -38,21 +38,21 @@ class RegisterScreenState extends State<RegisterScreenWidget> {
                 return "";
               },
                   label: "Email",
-                  marginInsets: GlobalSharedValues.boxInsets(32, 15)),
+                  marginInsets: CustomSharedConstants.boxInsets(32, 15)),
               TextFormFieldWidget((String? value) {
                 return "";
               },
                   label: "Password",
-                  marginInsets: GlobalSharedValues.boxInsets(15, 15)),
+                  marginInsets: CustomSharedConstants.boxInsets(15, 15)),
               TextFormFieldWidget((String? value) {
                 return "";
               },
                   label: "Confirm password",
-                  marginInsets: GlobalSharedValues.boxInsets(15, 0)),
+                  marginInsets: CustomSharedConstants.boxInsets(15, 0)),
               ButtonWidget(
                   textContent: "Sign up",
                   onPressed: () {Navigator.of(context).pushReplacementNamed("/verifyEmail");},
-                  marginInsets: GlobalSharedValues.boxInsets(84, 30)),
+                  marginInsets: CustomSharedConstants.boxInsets(84, 30)),
               Container(
                 margin: const EdgeInsets.only(bottom: 26),
                 child: Row(

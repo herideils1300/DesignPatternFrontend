@@ -1,4 +1,4 @@
-import 'package:croatia_explorer/layers/domain/DTO/UserDto.dart';
+import 'package:croatia_explorer/layers/domain/User.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -20,7 +20,9 @@ class HomeState extends State<HomeStateWidget> {
           future: Future<List<UserDto>>(() => []),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              return ListView.builder(itemBuilder: (context, index) {});
+              return ListView.builder(itemBuilder: (context, index) {
+                return null;
+              });
             }else if (snapshot.hasError) {
               return Text("Error: ${snapshot.error}");
             }else{

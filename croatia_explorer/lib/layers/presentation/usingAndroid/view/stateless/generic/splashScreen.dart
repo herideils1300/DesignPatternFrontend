@@ -1,4 +1,4 @@
-import 'package:croatia_explorer/layers/presentation/shared/widgets/image.dart';
+import 'package:croatia_explorer/layers/presentation/usingAndroid/view/shared/widgets/image.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 

@@ -1,17 +1,17 @@
-import 'package:croatia_explorer/layers/presentation/shared/constants/values.dart';
-import 'package:croatia_explorer/layers/presentation/shared/widgets/appBar.dart';
-import 'package:croatia_explorer/layers/presentation/shared/widgets/image.dart';
-import 'package:croatia_explorer/layers/presentation/shared/widgets/snackbar.dart';
+import 'package:croatia_explorer/layers/presentation/usingAndroid/view/shared/constants/values.dart';
+import 'package:croatia_explorer/layers/presentation/usingAndroid/view/shared/widgets/appBar.dart';
+import 'package:croatia_explorer/layers/presentation/usingAndroid/view/shared/widgets/image.dart';
+import 'package:croatia_explorer/layers/presentation/usingAndroid/view/shared/widgets/snackbar.dart';
 import 'package:flutter/material.dart';
 
-class PasswordSentWidget extends StatefulWidget {
-  const PasswordSentWidget({super.key});
+class VerifyEmailScreenWidget extends StatefulWidget {
+  const VerifyEmailScreenWidget({super.key});
 
   @override
-  State<StatefulWidget> createState() => PasswordSentState();
+  State<StatefulWidget> createState() => VerifyEmailScreenState();
 }
 
-class PasswordSentState extends State<PasswordSentWidget> {
+class VerifyEmailScreenState extends State<VerifyEmailScreenWidget> {
   @override
   Widget build(BuildContext context) {
     SnackBar snackBar = SnackBarWidget.create(context, "Email resent.");
@@ -23,18 +23,18 @@ class PasswordSentState extends State<PasswordSentWidget> {
           child: Column(
             children: [
               Container(
-                margin: GlobalSharedValues.boxInsets(206, 189),
+                margin: CustomSharedConstants.boxInsets(206, 189),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                        margin: GlobalSharedValues.boxInsets(0, 30),
+                        margin: CustomSharedConstants.boxInsets(0, 30),
                         child: const ImageWidget(
                             "lib/assets/images/mail_sent.png",
                             fit: BoxFit.fitHeight,
                             height: 200)),
                     Text(
-                      "Please check your inbox and reset your password.",
+                      "Please check your inbox and verify your email address.",
                       style: Theme.of(context).textTheme.displayMedium,
                       textAlign: TextAlign.center,
                     )

@@ -1,4 +1,4 @@
-import 'package:croatia_explorer/layers/domain/DTO/UserDto.dart';
+import 'package:croatia_explorer/layers/domain/User.dart';
 
 class UsersApi {
 

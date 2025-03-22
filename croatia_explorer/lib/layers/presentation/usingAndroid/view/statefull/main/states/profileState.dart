@@ -1,6 +1,5 @@
-import 'package:croatia_explorer/layers/data/globalConstants/global.dart';
-import 'package:croatia_explorer/layers/presentation/shared/constants/values.dart';
-import 'package:croatia_explorer/layers/presentation/shared/widgets/button.dart';
+import 'package:croatia_explorer/layers/presentation/usingAndroid/view/shared/constants/values.dart';
+import 'package:croatia_explorer/layers/presentation/usingAndroid/view/shared/widgets/button.dart';
 import 'package:flutter/material.dart';
 
 class ProfileStateWidget extends StatefulWidget {
@@ -18,12 +17,12 @@ class _ProfileState extends State<ProfileStateWidget> {
     return Column(
       children: [
         Text("My Profile", style: Theme.of(context).textTheme.titleLarge),
-        Container(margin: GlobalSharedValues.boxInsets(20, 20), child: Image.network("")),
+        Container(margin: CustomSharedConstants.boxInsets(20, 20), child: Image.network("")),
         const Text("John Doe"),
         const Text("john.doe@example.com"),
         const Spacer(flex: 1),
         Container(
-          margin: GlobalSharedValues.boxInsets(20, 0),
+          margin: CustomSharedConstants.boxInsets(20, 0),
           padding: const EdgeInsets.all(5.0),
           decoration: BoxDecoration(gradient: LinearGradient(colors: [
             Theme.of(context).colorScheme.primary,
@@ -39,7 +38,7 @@ class _ProfileState extends State<ProfileStateWidget> {
         ButtonWidget(
             onPressed: () {},
             textContent: "Sign Out",
-            marginInsets: GlobalSharedValues.boxInsets(20, 20))
+            marginInsets: CustomSharedConstants.boxInsets(20, 20))
       ],
     );
   }

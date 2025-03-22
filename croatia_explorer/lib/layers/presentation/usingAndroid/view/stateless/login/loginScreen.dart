@@ -1,8 +1,8 @@
 import 'package:croatia_explorer/layers/data/globalConstants/global.dart';
-import 'package:croatia_explorer/layers/presentation/shared/constants/values.dart';
-import 'package:croatia_explorer/layers/presentation/shared/widgets/button.dart';
-import 'package:croatia_explorer/layers/presentation/shared/widgets/textBox.dart';
-import 'package:croatia_explorer/layers/presentation/shared/widgets/image.dart';
+import 'package:croatia_explorer/layers/presentation/usingAndroid/view/shared/constants/values.dart';
+import 'package:croatia_explorer/layers/presentation/usingAndroid/view/shared/widgets/button.dart';
+import 'package:croatia_explorer/layers/presentation/usingAndroid/view/shared/widgets/textBox.dart';
+import 'package:croatia_explorer/layers/presentation/usingAndroid/view/shared/widgets/image.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreenWidget extends StatefulWidget {
@@ -35,7 +35,7 @@ class LoginScreenState extends State<LoginScreenWidget> {
                 ),
                 TextFormFieldWidget(
                     label: "Email",
-                    marginInsets: GlobalSharedValues.boxInsets(24, 12),
+                    marginInsets: CustomSharedConstants.boxInsets(24, 12),
                     (String? value) {
                   RegExp regex = RegExp(GlobalConstants.emailPattern);
                   if (value!.isEmpty) {
@@ -48,7 +48,7 @@ class LoginScreenState extends State<LoginScreenWidget> {
                 }),
                 TextFormFieldWidget(
                     label: "Password",
-                    marginInsets: GlobalSharedValues.boxInsets(12, 13),
+                    marginInsets: CustomSharedConstants.boxInsets(12, 13),
                     (String? value) {
                   if (value!.isEmpty) {
                     return "Please enter an Email.";
@@ -67,7 +67,7 @@ class LoginScreenState extends State<LoginScreenWidget> {
                 ButtonWidget(
                   onPressed: () {},
                   textContent: "Sign in",
-                  marginInsets: GlobalSharedValues.boxInsets(23.5, 0),
+                  marginInsets: CustomSharedConstants.boxInsets(23.5, 0),
                 ),
                 Center(
                   child: Row(

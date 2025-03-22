@@ -1,8 +1,8 @@
-import 'package:croatia_explorer/layers/presentation/using_android/view/statefulScreens/loginAndSignUp/loginScreen.dart';
-import 'package:croatia_explorer/layers/presentation/using_android/view/statefulScreens/loginAndSignUp/passwordResendingScreen.dart';
-import 'package:croatia_explorer/layers/presentation/using_android/view/statefulScreens/loginAndSignUp/registerScreen.dart';
-import 'package:croatia_explorer/layers/presentation/using_android/view/statefulScreens/loginAndSignUp/splashScreen.dart';
-import 'package:croatia_explorer/layers/presentation/using_android/view/statefulScreens/loginAndSignUp/verifyEmailScreen.dart';
+import 'package:croatia_explorer/layers/presentation/usingAndroid/view/stateless/login/loginScreen.dart';
+import 'package:croatia_explorer/layers/presentation/usingAndroid/view/stateless/recover/passwordResendingScreen.dart';
+import 'package:croatia_explorer/layers/presentation/usingAndroid/view/stateless/signUp/registerScreen.dart';
+import 'package:croatia_explorer/layers/presentation/usingAndroid/view/stateless/generic/splashScreen.dart';
+import 'package:croatia_explorer/layers/presentation/usingAndroid/view/stateless/recover/verifyEmailScreen.dart';
 import 'package:flex_seed_scheme/flex_seed_scheme.dart';
 import 'package:flutter/material.dart';
 

@@ -1,4 +1,4 @@
-import 'package:croatia_explorer/layers/presentation/shared/gradients/gradient.dart';
+import 'package:croatia_explorer/layers/presentation/usingAndroid/view/shared/gradients/gradient.dart';
 import 'package:flutter/material.dart';
 
 class ButtonWidget extends StatelessWidget {
