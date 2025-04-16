@@ -1,4 +1,4 @@
-import 'package:croatia_explorer/layers/data/globalConstants/global.dart';
+import 'package:croatia_explorer/layers/application/constants/global.dart';
 import 'package:croatia_explorer/layers/presentation/usingAndroid/view/shared/constants/values.dart';
 import 'package:croatia_explorer/layers/presentation/usingAndroid/view/shared/widgets/button.dart';
 import 'package:croatia_explorer/layers/presentation/usingAndroid/view/shared/widgets/textBox.dart';
@@ -65,7 +65,9 @@ class LoginScreenState extends State<LoginScreenWidget> {
                           style: Theme.of(context).textTheme.displayMedium),
                     )),
                 ButtonWidget(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pushNamed("/home");
+                  },
                   textContent: "Sign in",
                   marginInsets: CustomSharedConstants.boxInsets(23.5, 0),
                 ),

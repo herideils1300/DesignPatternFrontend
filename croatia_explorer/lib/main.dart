@@ -1,3 +1,4 @@
+import 'package:croatia_explorer/layers/presentation/usingAndroid/view/statefull/main/screens/mainScreen.dart';
 import 'package:croatia_explorer/layers/presentation/usingAndroid/view/stateless/login/loginScreen.dart';
 import 'package:croatia_explorer/layers/presentation/usingAndroid/view/stateless/recover/passwordResendingScreen.dart';
 import 'package:croatia_explorer/layers/presentation/usingAndroid/view/stateless/signUp/registerScreen.dart';
@@ -29,12 +30,10 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const SplashScreenWidget(),
         '/login': (context) => const LoginScreenWidget(),
-         '/register' : (context) => const RegisterScreenWidget(),
-        // '/home' : (context) => StatelessWidget(),
-        // '/favourites' : (context) => StatelessWidget(),
-        // '/profile' : (context) => StatelessWidget(),
-         '/verifyEmail' : (context) => const VerifyEmailScreenWidget(),
-         '/resetPassword': (context) => const PasswordResendingScreenWidget(),
+        '/register' : (context) => const RegisterScreenWidget(),
+        '/home' : (context) => const MainScreenWidget(),
+        '/verifyEmail' : (context) => const VerifyEmailScreenWidget(),
+        '/resetPassword': (context) => const PasswordResendingScreenWidget(),
         //'/sendPassword' : (context) =>  
       },
       theme: ThemeData.from(

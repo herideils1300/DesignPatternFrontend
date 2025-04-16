@@ -1,5 +1,6 @@
+import 'package:croatia_explorer/layers/presentation/usingAndroid/view/shared/widgets/appBar.dart';
 import 'package:croatia_explorer/layers/presentation/usingAndroid/view/statefull/main/states/favouritesState.dart';
-import 'package:croatia_explorer/layers/presentation/usingAndroid/view/statefull/main/states/homeState.dart';
+import 'package:croatia_explorer/layers/presentation/usingAndroid/view/statefull/main/states/sightsState.dart';
 import 'package:croatia_explorer/layers/presentation/usingAndroid/view/statefull/main/states/profileState.dart';
 import 'package:flutter/material.dart';
 
@@ -7,19 +8,20 @@ class MainScreenWidget extends StatefulWidget {
   const MainScreenWidget({super.key});
 
   @override
-  _MainScreenWidgetState createState() => _MainScreenWidgetState();
+  MainScreenWidgetState createState() => MainScreenWidgetState();
 }
 
-class _MainScreenWidgetState extends State<MainScreenWidget> {
+class MainScreenWidgetState extends State<MainScreenWidget> {
   int index = 0;
   final List<Widget> _pages = [
-    const HomeStateWidget(),
+    HomeStateWidget(),
     FavouritesStateWidget(),
-    const ProfileStateWidget(),
+    ProfileStateWidget(),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: switchNameAppBar(context, index),
       body: _pages[index],
       bottomNavigationBar: BottomNavigationBar(
           items: const [

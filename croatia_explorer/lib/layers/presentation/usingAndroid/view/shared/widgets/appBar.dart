@@ -19,3 +19,19 @@ AppBar appBar(BuildContext context, String title) => AppBar(
       elevation: 1.5,
       toolbarHeight: 60,
     );
+
+AppBar switchNameAppBar(BuildContext context, int index){
+  switch(index){
+    case 0:{
+      return appBar(context, "Places");
+    }
+    case 1:{
+      return appBar(context, "Favourites");
+    }
+    case 2:{
+      return appBar(context, "Profile");
+    }
+  }
+
+  throw Exception("The index is out of bounds.");
+} 

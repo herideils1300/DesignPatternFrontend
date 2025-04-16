@@ -38,6 +38,17 @@ dependencies:
   cupertino_icons: ^1.0.8
   flex_seed_scheme: ^3.4.1
   lottie: ^3.1.2
+  retrofit: ^4.4.2
+  dio: ^5.8.0+1
+  hive_ce: ^2.10.1
+  firebase_auth: ^5.5.1
+  json_annotation: ^4.9.0
+  json_serializable: ^6.9.4
+  dart_class_mapper: ^1.0.0
+  flutter_riverpod: ^2.6.1
+  riverpod_annotation: ^2.6.1
+  retrofit_generator: ^9.1.9
+  build_runner: ^2.4.15
 
 dev_dependencies:
   flutter_test:
