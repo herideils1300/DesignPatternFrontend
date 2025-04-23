@@ -1,7 +1,7 @@
 import 'package:croatia_explorer/layers/application/constants/global.dart';
 import 'package:croatia_explorer/layers/presentation/usingAndroid/view/shared/constants/values.dart';
 import 'package:croatia_explorer/layers/presentation/usingAndroid/view/shared/widgets/button.dart';
-import 'package:croatia_explorer/layers/presentation/usingAndroid/view/shared/widgets/textBox.dart';
+import 'package:croatia_explorer/layers/presentation/usingAndroid/view/shared/widgets/text_box.dart';
 import 'package:croatia_explorer/layers/presentation/usingAndroid/view/shared/widgets/image.dart';
 import 'package:flutter/material.dart';
 

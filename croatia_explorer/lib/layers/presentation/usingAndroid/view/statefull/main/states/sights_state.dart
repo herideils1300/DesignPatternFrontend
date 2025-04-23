@@ -1,5 +1,5 @@
 import 'package:croatia_explorer/layers/domain/Sight.dart';
-import 'package:croatia_explorer/layers/presentation/usingAndroid/view/shared/widgets/customCard.dart';
+import 'package:croatia_explorer/layers/presentation/usingAndroid/view/shared/widgets/custom_cards.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 

@@ -1,5 +1,5 @@
-import 'package:croatia_explorer/layers/data/dto/SightDto.dart';
-import 'package:croatia_explorer/layers/data/dto/UserDto.dart';
+import 'package:croatia_explorer/layers/data/dto/sight_dto.dart';
+import 'package:croatia_explorer/layers/data/dto/user_dto.dart';
 import 'package:croatia_explorer/layers/domain/Sight.dart';
 import 'package:croatia_explorer/layers/domain/User.dart';
 import 'package:dart_class_mapper/dart_class_mapper.dart';

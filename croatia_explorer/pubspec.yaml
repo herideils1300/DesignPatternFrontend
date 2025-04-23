@@ -47,10 +47,10 @@ dependencies:
   dart_class_mapper: ^1.0.0
   flutter_riverpod: ^2.6.1
   riverpod_annotation: ^2.6.1
-  retrofit_generator: ^9.1.9
-  build_runner: ^2.4.15
 
 dev_dependencies:
+  retrofit_generator: ^9.1.9
+  build_runner: ^2.4.15
   flutter_test:
     sdk: flutter
 
