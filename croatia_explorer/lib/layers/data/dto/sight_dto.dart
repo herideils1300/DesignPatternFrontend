@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-part 'sight_dto.g.dart';
+part 'implementations/sight_dto.g.dart';
 
 @JsonSerializable()
 class SightDto{

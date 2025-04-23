@@ -1,9 +1,9 @@
-import 'package:croatia_explorer/layers/presentation/usingAndroid/view/statefull/main/screens/main_screen.dart';
-import 'package:croatia_explorer/layers/presentation/usingAndroid/view/stateless/login/login_screen.dart';
-import 'package:croatia_explorer/layers/presentation/usingAndroid/view/stateless/recover/password_resending_screen.dart';
-import 'package:croatia_explorer/layers/presentation/usingAndroid/view/stateless/signUp/register_screen.dart';
-import 'package:croatia_explorer/layers/presentation/usingAndroid/view/stateless/generic/splash_screen.dart';
-import 'package:croatia_explorer/layers/presentation/usingAndroid/view/stateless/recover/verify_email_screen.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/view/statefull/main/screens/main_screen.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/view/stateless/login/login_screen.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/view/stateless/recover/password_resending_screen.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/view/stateless/signUp/register_screen.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/view/stateless/generic/splash_screen.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/view/stateless/recover/verify_email_screen.dart';
 import 'package:flex_seed_scheme/flex_seed_scheme.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +20,8 @@ class MyApp extends StatelessWidget {
     ColorScheme generatedScheme = SeedColorScheme.fromSeeds(
       primaryKey: const Color.fromARGB(255, 157, 44, 86),
       secondaryKey: const Color.fromARGB(255, 209, 116, 56),
-      tertiaryKey: const Color.fromARGB(255, 23, 28, 38),
+      //tertiaryKey: const Color.fromARGB(255, 23, 28, 38),
+      tertiaryKey: const Color.fromARGB(255, 255, 255, 255),
       brightness: Brightness.light
     );
 

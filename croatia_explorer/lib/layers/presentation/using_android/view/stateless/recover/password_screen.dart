@@ -1,17 +1,17 @@
-import 'package:croatia_explorer/layers/presentation/usingAndroid/view/shared/constants/values.dart';
-import 'package:croatia_explorer/layers/presentation/usingAndroid/view/shared/widgets/app_bar.dart';
-import 'package:croatia_explorer/layers/presentation/usingAndroid/view/shared/widgets/image.dart';
-import 'package:croatia_explorer/layers/presentation/usingAndroid/view/shared/widgets/snack_bar.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/view/shared/constants/values.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/view/shared/widgets/app_bar.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/view/shared/widgets/image.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/view/shared/widgets/snack_bar.dart';
 import 'package:flutter/material.dart';
 
-class VerifyEmailScreenWidget extends StatefulWidget {
-  const VerifyEmailScreenWidget({super.key});
+class PasswordSentWidget extends StatefulWidget {
+  const PasswordSentWidget({super.key});
 
   @override
-  State<StatefulWidget> createState() => VerifyEmailScreenState();
+  State<StatefulWidget> createState() => PasswordSentState();
 }
 
-class VerifyEmailScreenState extends State<VerifyEmailScreenWidget> {
+class PasswordSentState extends State<PasswordSentWidget> {
   @override
   Widget build(BuildContext context) {
     SnackBar snackBar = SnackBarWidget.create(context, "Email resent.");
@@ -34,7 +34,7 @@ class VerifyEmailScreenState extends State<VerifyEmailScreenWidget> {
                             fit: BoxFit.fitHeight,
                             height: 200)),
                     Text(
-                      "Please check your inbox and verify your email address.",
+                      "Please check your inbox and reset your password.",
                       style: Theme.of(context).textTheme.displayMedium,
                       textAlign: TextAlign.center,
                     )

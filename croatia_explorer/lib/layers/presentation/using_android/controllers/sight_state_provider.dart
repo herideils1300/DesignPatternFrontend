@@ -6,6 +6,7 @@ class HomeStateProvider {
   List<ListSight> state = [];
 
   void getListSights() async {
+    
   }
 
 }

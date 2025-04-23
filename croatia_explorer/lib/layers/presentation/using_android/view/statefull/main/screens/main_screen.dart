@@ -1,7 +1,7 @@
-import 'package:croatia_explorer/layers/presentation/usingAndroid/view/shared/widgets/app_bar.dart';
-import 'package:croatia_explorer/layers/presentation/usingAndroid/view/statefull/main/states/favourites_state.dart';
-import 'package:croatia_explorer/layers/presentation/usingAndroid/view/statefull/main/states/sights_state.dart';
-import 'package:croatia_explorer/layers/presentation/usingAndroid/view/statefull/main/states/profile_state.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/view/shared/widgets/app_bar.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/view/statefull/main/states/favourites_state.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/view/statefull/main/states/sights_state.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/view/statefull/main/states/profile_state.dart';
 import 'package:flutter/material.dart';
 
 class MainScreenWidget extends StatefulWidget {
