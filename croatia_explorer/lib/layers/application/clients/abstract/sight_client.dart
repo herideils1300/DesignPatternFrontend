@@ -10,9 +10,9 @@ abstract class SightsClient {
     factory SightsClient(Dio dio) = _SightsClient;
 
     @GET("/sight/all")
-    Future<HttpResponse<List<SightDto>>> getAllSights();
+    Future<List<SightDto>> getAllSights();
 
     @GET("/sight/{id}")
-    Future<HttpResponse<SightDto>> getOneSight(@Path('id') int id);
+    Future<SightDto> getOneSight(@Path('id') int id);
 
 }

@@ -1,4 +1,4 @@
-import 'package:croatia_explorer/layers/domain/Sight.dart';
+import 'package:croatia_explorer/layers/domain/sight.dart';
 import 'package:hive_ce/hive.dart';
 
 class FavouritesRepo {

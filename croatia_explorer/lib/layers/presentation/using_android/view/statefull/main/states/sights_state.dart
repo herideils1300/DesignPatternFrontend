@@ -1,6 +1,8 @@
-import 'package:croatia_explorer/layers/domain/Sight.dart';
-import 'package:croatia_explorer/layers/presentation/using_android/view/shared/widgets/custom_cards.dart';
+import 'package:croatia_explorer/layers/domain/sight.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/providers/main_screen_state_provider.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/view/shared/custom_widgets/custom_cards.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lottie/lottie.dart';
 
 class HomeStateWidget extends StatefulWidget {
@@ -14,11 +16,11 @@ class HomeStateWidget extends StatefulWidget {
 
 class HomeState extends State<HomeStateWidget> {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return FutureBuilder(
         initialData: [ListSight("title", "adress", 0.0, 0.0, 2, "sukPP")],
         future: Future<Iterable<ListSight>>(
-            () => [ListSight("title", "adress", 0.0, 0.0, 2, "sukPP")]),
+            () => ref.watch(MainScreenStateNotifier())),
         builder: (context, snapshot) {
           if (snapshot.hasData && !snapshot.hasError) {
             return ListView.builder(

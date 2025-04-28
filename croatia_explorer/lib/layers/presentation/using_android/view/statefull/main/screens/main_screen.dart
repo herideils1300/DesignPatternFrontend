@@ -1,8 +1,7 @@
-import 'package:croatia_explorer/layers/presentation/using_android/view/shared/widgets/app_bar.dart';
-import 'package:croatia_explorer/layers/presentation/using_android/view/statefull/main/states/favourites_state.dart';
-import 'package:croatia_explorer/layers/presentation/using_android/view/statefull/main/states/sights_state.dart';
-import 'package:croatia_explorer/layers/presentation/using_android/view/statefull/main/states/profile_state.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/providers/main_screen_state_provider.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/view/shared/custom_widgets/app_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class MainScreenWidget extends StatefulWidget {
   const MainScreenWidget({super.key});
@@ -13,16 +12,12 @@ class MainScreenWidget extends StatefulWidget {
 
 class MainScreenWidgetState extends State<MainScreenWidget> {
   int index = 0;
-  final List<Widget> _pages = [
-    HomeStateWidget(),
-    FavouritesStateWidget(),
-    ProfileStateWidget(),
-  ];
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: switchNameAppBar(context, index),
-      body: _pages[index],
+      body: ref.read(mainScreenStateProvider),
       bottomNavigationBar: BottomNavigationBar(
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),

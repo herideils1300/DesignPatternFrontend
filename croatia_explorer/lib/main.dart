@@ -1,3 +1,4 @@
+import 'package:croatia_explorer/layers/application/mappers/create.dart';
 import 'package:croatia_explorer/layers/presentation/using_android/view/statefull/main/screens/main_screen.dart';
 import 'package:croatia_explorer/layers/presentation/using_android/view/stateless/login/login_screen.dart';
 import 'package:croatia_explorer/layers/presentation/using_android/view/stateless/recover/password_resending_screen.dart';
@@ -6,9 +7,12 @@ import 'package:croatia_explorer/layers/presentation/using_android/view/stateles
 import 'package:croatia_explorer/layers/presentation/using_android/view/stateless/recover/verify_email_screen.dart';
 import 'package:flex_seed_scheme/flex_seed_scheme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 void main() {
-  runApp(const MyApp());
+  createMappers();
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -18,12 +22,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ColorScheme generatedScheme = SeedColorScheme.fromSeeds(
-      primaryKey: const Color.fromARGB(255, 157, 44, 86),
-      secondaryKey: const Color.fromARGB(255, 209, 116, 56),
-      //tertiaryKey: const Color.fromARGB(255, 23, 28, 38),
-      tertiaryKey: const Color.fromARGB(255, 255, 255, 255),
-      brightness: Brightness.light
-    );
+        primaryKey: const Color.fromARGB(255, 157, 44, 86),
+        secondaryKey: const Color.fromARGB(255, 209, 116, 56),
+        tertiaryKey: const Color.fromARGB(255, 23, 28, 38),
+        brightness: Brightness.light);
 
     return MaterialApp(
       title: 'Flutter Project',
@@ -31,11 +33,11 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const SplashScreenWidget(),
         '/login': (context) => const LoginScreenWidget(),
-        '/register' : (context) => const RegisterScreenWidget(),
-        '/home' : (context) => const MainScreenWidget(),
-        '/verifyEmail' : (context) => const VerifyEmailScreenWidget(),
+        '/register': (context) => const RegisterScreenWidget(),
+        '/home': (context) => const MainScreenWidget(),
+        '/verifyEmail': (context) => const VerifyEmailScreenWidget(),
         '/resetPassword': (context) => const PasswordResendingScreenWidget(),
-        //'/sendPassword' : (context) =>  
+        //'/sendPassword' : (context) =>
       },
       theme: ThemeData.from(
           colorScheme: generatedScheme,

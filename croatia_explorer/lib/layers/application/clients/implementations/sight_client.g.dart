@@ -20,7 +20,7 @@ class _SightsClient implements SightsClient {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<HttpResponse<List<SightDto>>> getAllSights() async {
+  Future<List<SightDto>> getAllSights() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -45,12 +45,11 @@ class _SightsClient implements SightsClient {
       errorLogger?.logError(e, s, _options);
       rethrow;
     }
-    final httpResponse = HttpResponse(_value, _result);
-    return httpResponse;
+    return _value;
   }
 
   @override
-  Future<HttpResponse<SightDto>> getOneSight(int id) async {
+  Future<SightDto> getOneSight(int id) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -73,8 +72,7 @@ class _SightsClient implements SightsClient {
       errorLogger?.logError(e, s, _options);
       rethrow;
     }
-    final httpResponse = HttpResponse(_value, _result);
-    return httpResponse;
+    return _value;
   }
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {

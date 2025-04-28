@@ -1,7 +1,7 @@
 import 'package:croatia_explorer/layers/presentation/using_android/view/shared/constants/values.dart';
-import 'package:croatia_explorer/layers/presentation/using_android/view/shared/widgets/app_bar.dart';
-import 'package:croatia_explorer/layers/presentation/using_android/view/shared/widgets/image.dart';
-import 'package:croatia_explorer/layers/presentation/using_android/view/shared/widgets/snack_bar.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/view/shared/custom_widgets/app_bar.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/view/shared/custom_widgets/image.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/view/shared/custom_widgets/snack_bar.dart';
 import 'package:flutter/material.dart';
 
 class PasswordSentWidget extends StatefulWidget {

@@ -1,4 +1,4 @@
-import 'package:croatia_explorer/layers/domain/Sight.dart';
+import 'package:croatia_explorer/layers/domain/sight.dart';
 import 'package:croatia_explorer/layers/presentation/using_android/view/shared/gradients/gradient.dart';
 import 'package:flutter/material.dart';
 
