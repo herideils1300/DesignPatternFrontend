@@ -10,7 +10,6 @@ void createMappers() {
   });
 
   CreateMap<ListSight, SightDto>((value) => ListSight(value.title, value.adress,
-      value.lat, value.lng, value.rating, value.imageUrl));
-
-  CreateMap<, SightDto>
+      value.lat, value.lng, value.rating, value.imageUrl, false //<--
+      /* This gets set when the sights are loaded and matched with the Hive box elements*/));
 }

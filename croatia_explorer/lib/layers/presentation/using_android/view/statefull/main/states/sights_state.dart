@@ -1,40 +1,16 @@
-import 'package:croatia_explorer/layers/domain/sight.dart';
-import 'package:croatia_explorer/layers/presentation/using_android/providers/main_screen_state_provider.dart';
-import 'package:croatia_explorer/layers/presentation/using_android/view/shared/custom_widgets/custom_cards.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:lottie/lottie.dart';
-
-class HomeStateWidget extends StatefulWidget {
+/*
+class HomeStateWidget extends ConsumerStatefulWidget {
   const HomeStateWidget({super.key});
 
   @override
-  State<StatefulWidget> createState() {
+  ConsumerState<HomeStateWidget> createState() {
     return HomeState();
   }
 }
 
-class HomeState extends State<HomeStateWidget> {
+class HomeState extends ConsumerState<HomeStateWidget> {
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    return FutureBuilder(
-        initialData: [ListSight("title", "adress", 0.0, 0.0, 2, "sukPP")],
-        future: Future<Iterable<ListSight>>(
-            () => ref.watch(MainScreenStateNotifier())),
-        builder: (context, snapshot) {
-          if (snapshot.hasData && !snapshot.hasError) {
-            return ListView.builder(
-              itemCount: snapshot.data!.length,
-              itemBuilder: (context, index) {
-                return CustomCardState(sight: snapshot.data!.toList()[index]);
-              },
-            );
-          } else if (snapshot.hasError) {
-            return Text("Error: ${snapshot.error.toString()}",
-                style: TextTheme.of(context).bodyMedium);
-          } else {
-            return Lottie.asset("lib/assets/animations/loading_sights.json");
-          }
-        });
+  Widget build(BuildContext context) {
   }
 }
+*/

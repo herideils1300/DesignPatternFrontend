@@ -3,21 +3,23 @@ import 'package:croatia_explorer/layers/presentation/using_android/view/shared/c
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class MainScreenWidget extends StatefulWidget {
+class MainScreenWidget extends ConsumerStatefulWidget {
   const MainScreenWidget({super.key});
 
   @override
   MainScreenWidgetState createState() => MainScreenWidgetState();
 }
 
-class MainScreenWidgetState extends State<MainScreenWidget> {
+class MainScreenWidgetState extends ConsumerState<MainScreenWidget> {
   int index = 0;
-
+  
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
+    final stateNotifier = ref.watch(mainScreenStateProvider.notifier);
+    final state = ref.watch(mainScreenStateProvider);
     return Scaffold(
       appBar: switchNameAppBar(context, index),
-      body: ref.read(mainScreenStateProvider),
+      body: state.build(context),
       bottomNavigationBar: BottomNavigationBar(
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
@@ -28,8 +30,10 @@ class MainScreenWidgetState extends State<MainScreenWidget> {
           onTap: (int newIndex) {
             setState(() {
               index = newIndex;
+              stateNotifier.setScreen(newIndex);
             });
           }),
     );
   }
+  
 }

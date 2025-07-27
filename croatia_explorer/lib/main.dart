@@ -8,7 +8,6 @@ import 'package:croatia_explorer/layers/presentation/using_android/view/stateles
 import 'package:flex_seed_scheme/flex_seed_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 void main() {
   createMappers();

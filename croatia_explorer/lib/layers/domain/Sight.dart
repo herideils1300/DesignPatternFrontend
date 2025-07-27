@@ -5,8 +5,9 @@ class ListSight{
   double lng = 0.0;
   int rating = 0;
   String imageUrl = "";
+  bool favourite = false;
 
-  ListSight(this.title, this.adress, this.lat, this.lng, this.rating, this.imageUrl);
+  ListSight(this.title, this.adress, this.lat, this.lng, this.rating, this.imageUrl, this.favourite);
 }
 
 class DetailsSight{
