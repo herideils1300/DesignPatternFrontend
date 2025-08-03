@@ -1,5 +1,3 @@
-import 'dart:js_interop';
-
 import 'package:croatia_explorer/layers/application/clients/abstract/sight_client.dart';
 import 'package:croatia_explorer/layers/data/repos/Hive/favouritesRepo.dart';
 import 'package:croatia_explorer/layers/domain/sight.dart';
