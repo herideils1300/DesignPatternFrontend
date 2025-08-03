@@ -1,7 +1,9 @@
+import 'dart:js_interop';
+
 import 'package:croatia_explorer/layers/application/clients/abstract/sight_client.dart';
 import 'package:croatia_explorer/layers/data/repos/Hive/favouritesRepo.dart';
 import 'package:croatia_explorer/layers/domain/sight.dart';
-import 'package:croatia_explorer/layers/presentation/using_android/providers/sights_screen_state_provider.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/providers_and_notifiers/sights_screen_state_provider.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -18,6 +20,10 @@ class FavouritesScreenStateNotifier extends StateNotifier<List<ListSight>> {
         favRepo.addFavourite(a);
       }
     }
+  }
+
+  Future<Iterable<ListSight>> getFavourites() async {
+    return favRepo.getAllFavourites();
   }
 
 

@@ -26,7 +26,7 @@ class LoadedSightsMain extends MainScreenState {
     return ListView.builder(
       itemCount: snapshot.data!.length,
       itemBuilder: (context, index) {
-        return CustomCardState(sight: snapshot.data!.toList()[index]);
+        return CustomCard(sight: snapshot.data!.toList()[index]);
       },
     );
   }
@@ -42,7 +42,7 @@ class LoadedProfileMain extends MainScreenState {
         const Text("John Doe"),
         const Text("john.doe@example.com"),
         const Spacer(flex: 1),
-        Container(
+        Container(  
           margin: CustomSharedConstants.boxInsets(20, 0),
           padding: const EdgeInsets.all(5.0),
           decoration: BoxDecoration(gradient: LinearGradient(colors: [

@@ -10,7 +10,7 @@ class SightsScreenStateProvider extends StateNotifier<List<ListSight>> {
   List<ListSight> sights = [];
   SightsScreenStateProvider(super.state);
 
-  List<ListSight> getSights() {
+  List<ListSight> regetSights(){
     return sights;
   }
 

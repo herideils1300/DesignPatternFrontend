@@ -1,4 +1,5 @@
-import 'package:croatia_explorer/layers/presentation/using_android/providers/main_screen_state_provider.dart';
+import 'package:croatia_explorer/layers/domain/sight.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/providers_and_notifiers/sights_screen_state_provider.dart';
 import 'package:croatia_explorer/layers/presentation/using_android/view/shared/custom_widgets/app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -15,11 +16,11 @@ class MainScreenWidgetState extends ConsumerState<MainScreenWidget> {
   
   @override
   Widget build(BuildContext context) {
-    final stateNotifier = ref.watch(mainScreenStateProvider.notifier);
-    final state = ref.watch(mainScreenStateProvider);
+    final stateNotifier = ref.watch(sightsScreenStateProvider.notifier);
+    final state = ref.watch(sightsScreenStateProvider);
     return Scaffold(
       appBar: switchNameAppBar(context, index),
-      body: state.build(context),
+      body: state as StatefulWidget,
       bottomNavigationBar: BottomNavigationBar(
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
@@ -30,7 +31,6 @@ class MainScreenWidgetState extends ConsumerState<MainScreenWidget> {
           onTap: (int newIndex) {
             setState(() {
               index = newIndex;
-              stateNotifier.setScreen(newIndex);
             });
           }),
     );

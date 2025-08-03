@@ -2,10 +2,10 @@ import 'package:croatia_explorer/layers/domain/sight.dart';
 import 'package:croatia_explorer/layers/presentation/using_android/view/shared/gradients/gradient.dart';
 import 'package:flutter/material.dart';
 
-class CustomCardState extends StatelessWidget {
+class CustomCard extends StatelessWidget {
   final ListSight sight;
 
-  const CustomCardState({super.key, required this.sight});
+  const CustomCard({super.key, required this.sight});
 
   @override
   Widget build(BuildContext context) {
