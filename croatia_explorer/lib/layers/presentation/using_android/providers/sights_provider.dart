@@ -5,10 +5,13 @@ import 'package:dart_class_mapper/dart_class_mapper.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class SightsScreenStateProvider extends StateNotifier<List<ListSight>> {
-  final client = SightsClient(Dio(BaseOptions()));
+class SightsProvider extends StateNotifier<List<ListSight>> {
+  final client = SightsClient(Dio(BaseOptions(headers: {
+    "Access-Control-Allow-Origin" : "*",
+    "Access-Control-Allow-Methods" : "GET, POST, PUT, DELETE, PATCH, HEAD, OPTIONS"
+  })));
   List<ListSight> sights = [];
-  SightsScreenStateProvider(super.state);
+  SightsProvider(super.state);
 
   List<ListSight> regetSights(){
     return sights;
@@ -26,4 +29,4 @@ class SightsScreenStateProvider extends StateNotifier<List<ListSight>> {
 }
 
 final sightsScreenStateProvider =
-    StateNotifierProvider((ref) => SightsScreenStateProvider([]));
+    StateNotifierProvider((ref) => SightsProvider([]));

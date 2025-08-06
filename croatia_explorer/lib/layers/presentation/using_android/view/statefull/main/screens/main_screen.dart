@@ -1,6 +1,9 @@
-import 'package:croatia_explorer/layers/domain/sight.dart';
-import 'package:croatia_explorer/layers/presentation/using_android/providers_and_notifiers/sights_screen_state_provider.dart';
+import 'package:croatia_explorer/layers/application/constants/global.dart';
 import 'package:croatia_explorer/layers/presentation/using_android/view/shared/custom_widgets/app_bar.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/view/statefull/main/states/screen_states.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/view/statefull/main/states/state_implementations/favourites_state.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/view/statefull/main/states/state_implementations/profile_state.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/view/statefull/main/states/state_implementations/sights_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -13,14 +16,32 @@ class MainScreenWidget extends ConsumerStatefulWidget {
 
 class MainScreenWidgetState extends ConsumerState<MainScreenWidget> {
   int index = 0;
+  late ScreenState state;
+
+
+  @override
+  void initState() {
+    state = SightsMain();
+    super.initState();
+  }
   
   @override
   Widget build(BuildContext context) {
-    final stateNotifier = ref.watch(sightsScreenStateProvider.notifier);
-    final state = ref.watch(sightsScreenStateProvider);
+
     return Scaffold(
       appBar: switchNameAppBar(context, index),
-      body: state as StatefulWidget,
+      body: switch (state){
+        SightsMain() => const HomeStateWidget(),
+        FavouritesMain() => const FavouritesStateWidget(),
+        ProfileMain() => const ProfileStateWidget(),
+        ErrorMain() => Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("Error: something went wrong", style: Theme.of(context).textTheme.displayMedium),
+          ],
+        )
+
+      },
       bottomNavigationBar: BottomNavigationBar(
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
@@ -31,6 +52,7 @@ class MainScreenWidgetState extends ConsumerState<MainScreenWidget> {
           onTap: (int newIndex) {
             setState(() {
               index = newIndex;
+              state = GlobalConstants.screenStateList[newIndex];
             });
           }),
     );

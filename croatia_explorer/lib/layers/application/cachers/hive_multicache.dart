@@ -5,7 +5,7 @@ class Multicache<E> {
   
   Multicache();
 
-  void create(String boxName) async {
+  void createOrOpen(String boxName) async {
     final newBox = await Hive.openBox<E>(boxName);
     boxes.add(newBox);
   }
