@@ -9,7 +9,7 @@ void createMappers() {
     return User(userDto.email, userDto.name, userDto.image);
   });
 
-  CreateMap<ListSight, SightDto>((value) => ListSight(value.title, value.adress,
+  CreateMap<ListSight, SightDto>((value) => ListSight(value.title, value.address,
       value.lat, value.lng, value.rating, value.imageUrl, false //<--
       /* This gets set when the sights are loaded and matched with the Hive box elements*/));
 }

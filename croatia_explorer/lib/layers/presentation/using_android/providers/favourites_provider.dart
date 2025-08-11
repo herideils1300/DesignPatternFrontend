@@ -28,7 +28,7 @@ class FavouritesProvider extends StateNotifier<List<ListSight>> {
 }
 
 final favouritesScreenStateProvider = StateNotifierProvider<FavouritesProvider, List<ListSight>>((ref) {
-  final sightsScreenStateNotifier = ref.watch(sightsScreenStateProvider.notifier);
+  final sightsScreenStateNotifier = ref.watch(sightsScreenStateProvider);
 
-  return FavouritesProvider(sightsScreenStateNotifier.sights);
+  return FavouritesProvider((sightsScreenStateNotifier.hasValue) ? sightsScreenStateNotifier.value!: List.empty());
 });

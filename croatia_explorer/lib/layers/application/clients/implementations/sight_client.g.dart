@@ -9,7 +9,7 @@ part of '../abstract/sight_client.dart';
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations
 
 class _SightsClient implements SightsClient {
-  _SightsClient(this._dio, {this.baseUrl = 'http://144.91.87.48:8080', this.errorLogger}) {
+  _SightsClient(this._dio, {this.baseUrl, this.errorLogger}) {
     baseUrl ??= 'http://144.91.87.48:8080';
   }
 

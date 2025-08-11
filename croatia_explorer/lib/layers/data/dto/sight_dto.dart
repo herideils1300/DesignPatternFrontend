@@ -6,7 +6,7 @@ class SightDto{
   int id;
   String title;
   String description;
-  String adress;
+  String address;
   double lat;
   double lng;
   int rating;
@@ -16,7 +16,7 @@ class SightDto{
     required this.id,
     required this.title,
     required this.description,
-    required this.adress,
+    required this.address,
     required this.lat,
     required this.lng,
     required this.rating,
