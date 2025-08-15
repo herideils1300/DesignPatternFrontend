@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:croatia_explorer/layers/application/clients/abstract/sight_client.dart';
 import 'package:croatia_explorer/layers/data/dto/sight_dto.dart';
 import 'package:croatia_explorer/layers/domain/sight.dart';

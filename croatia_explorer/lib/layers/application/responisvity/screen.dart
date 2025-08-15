@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 
 class Screen {
-   BuildContext context;
-   
-   Screen(this.context);
 
-   double calcualteWidth(){
+   static double calcualteWidth(BuildContext context){
     return context.size!.width;
    }
 
-   double calculateHeight(){
+   static double calculateHeight(BuildContext context){
     return context.size!.height;
    }
 }

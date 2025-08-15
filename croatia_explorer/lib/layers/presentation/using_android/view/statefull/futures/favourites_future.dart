@@ -9,21 +9,21 @@ class FavouritesFuture extends ConsumerStatefulWidget {
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => FavouritesState();
-
 }
 
-class FavouritesState extends ConsumerState<FavouritesFuture>{
+class FavouritesState extends ConsumerState<FavouritesFuture> {
+
   @override
   Widget build(BuildContext context) {
-    final favouritesNotifier = ref.watch(favouritesScreenStateProvider.notifier);
+    final favourite = ref.watch(favouritesScreenStateProvider.future);
 
-    return FutureBuilder(future: favouritesNotifier.getFavourites(), builder: (context, snapshot) {
+    return FutureBuilder(future: favourite, builder: (context, snapshot){
       if(snapshot.hasData){
-        return ListView.builder(itemBuilder: (context, index){
-          return CustomCard(sight: snapshot.data!.toList()[index]);
-        });
+        return ListView.builder(itemBuilder: (context, index) => CustomCard(sight: snapshot.data![index]));
+      }else if(snapshot.hasData || snapshot.data!.isEmpty){
+        return Center(child: Text("No data yet. :)", style: Theme.of(context).textTheme.displayMedium));
       }else if(snapshot.hasError){
-        return Text("Error: ${snapshot.error}", style: Theme.of(context).textTheme.displayMedium);
+        return Center(child: Text("Error 404.", style: Theme.of(context).textTheme.displayMedium));
       }else{
         return Container(
               width: 75,
@@ -34,6 +34,28 @@ class FavouritesState extends ConsumerState<FavouritesFuture>{
             );
       }
     });
-  }
 
+    }
+
+    // return FutureBuilder(future: favouritesNotifier.getFavourites(), builder: (context, snapshot) {
+    //   if(snapshot.hasData){
+    //     return ListView.builder(itemCount: snapshot.data!.length, itemBuilder: (context, index){
+    //       return CustomCard(sight: snapshot.data!.toList()[index]);
+    //     });
+    //   }else if(snapshot.hasError){
+    //     return Text("Error: ${snapshot.error}", style: Theme.of(context).textTheme.displayMedium);
+    //   }
+    //   else if(snapshot.data!.isEmpty) {
+    //     return const Center(child: Text("No data yet."));
+    //   }else{
+    //     return Container(
+    //           width: 75,
+    //           height: 75,
+    //           margin: const EdgeInsets.only(top: 20),
+    //           child: Lottie.asset("lib/assets/animations/loading_sights.json",
+    //               alignment: Alignment.center),
+    //         );
+    //   }
+    // });
+  }
 }

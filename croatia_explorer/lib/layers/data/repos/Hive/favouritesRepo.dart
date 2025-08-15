@@ -1,35 +1,33 @@
+// ignore: file_names
+
+import 'package:croatia_explorer/layers/application/cachers/hive_multicache.dart';
 import 'package:croatia_explorer/layers/domain/sight.dart';
-import 'package:hive_ce/hive.dart';
 
 class FavouritesRepo {
-  final String boxName = "sightsBox";
-  late final Box<ListSight> box;
-
-  Future<int> _openBox() async {
-    box = await Hive.openBox(boxName);
-    return box.values.toList().length;
-  }
-
-  void _closeBox() {
-    Hive.close();
-  }
+  final boxName = "sightsBox";
+  late Multicache<ListSight> hiveMulticache;
 
   FavouritesRepo(String path) {
-    Hive.init(path);
-    _openBox();
+    hiveMulticache = Multicache<ListSight>();
   }
 
-  Future<Iterable<ListSight>> getAllFavourites() async {
-    await _openBox();
-    List<ListSight> sights = box.values.toList();
-    _closeBox();
+  Iterable<ListSight> getAllFavourites() {
+    hiveMulticache.createOrOpen(boxName);
 
-    return sights;
+    Iterable<ListSight> iterable = hiveMulticache.extractAll(boxName);
+    
+    late List<ListSight> favourites;
+    if (iterable.isNotEmpty) {
+      favourites = hiveMulticache.extractAll(boxName).toList();
+    } else {
+      return [];
+    }
+
+    return favourites;
   }
 
-  void addFavourite(ListSight sight) async {
-    await _openBox();
-    box.add(sight);
-    _closeBox();
+  void addFavourite(ListSight sight) {
+    hiveMulticache.createOrOpen(boxName);
+    hiveMulticache.save(boxName, sight.title, sight);
   }
 }

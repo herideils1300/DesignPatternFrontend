@@ -14,5 +14,5 @@ abstract class SightsClient {
 
     @GET("/sight/{id}")
     Future<SightDto> getOneSight(@Path('id') int id);
-
+    
 }
