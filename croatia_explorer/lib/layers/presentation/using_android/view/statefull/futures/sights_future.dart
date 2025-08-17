@@ -1,5 +1,7 @@
+import 'package:croatia_explorer/layers/presentation/using_android/providers/favourites_provider.dart';
 import 'package:croatia_explorer/layers/presentation/using_android/providers/sights_provider.dart';
 import 'package:croatia_explorer/layers/presentation/using_android/view/shared/custom_widgets/custom_cards.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/view/statefull/futures/favourites_future.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lottie/lottie.dart';
@@ -14,10 +16,12 @@ class SightsFuture extends ConsumerStatefulWidget {
 class SightsFutureWidget extends ConsumerState<SightsFuture> {
 
   late SightsProvider notifier;
+  late FavouritesProvider favouritesNotifier;
 
   @override
   void initState() {
     notifier = ref.read(sightsScreenStateProvider.notifier);
+    favouritesNotifier = ref.read(favouritesScreenStateProvider.notifier);
     super.initState();
   }
 
@@ -28,6 +32,7 @@ class SightsFutureWidget extends ConsumerState<SightsFuture> {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return ListView.builder(itemCount: snapshot.data!.length, itemBuilder: (context, index) {
+              favouritesNotifier.determineFavourite(snapshot.data![index]);
               return CustomCard(sight: snapshot.data![index]);
             });
           } else if (snapshot.hasError) {
