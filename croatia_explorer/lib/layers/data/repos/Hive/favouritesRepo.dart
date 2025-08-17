@@ -5,20 +5,24 @@ import 'package:croatia_explorer/layers/domain/sight.dart';
 
 class FavouritesRepo {
   final boxName = "sightsBox";
-  late Multicache<ListSight> hiveMulticache;
+  late Cacher<ListSight> hiveCache;
 
   FavouritesRepo(String path) {
-    hiveMulticache = Multicache<ListSight>();
+    hiveCache = Cacher<ListSight>();
   }
 
-  Iterable<ListSight> getAllFavourites() {
-    hiveMulticache.createOrOpen(boxName);
+  void remove(String key){
+    hiveCache.remove(key);
+  }
 
-    Iterable<ListSight> iterable = hiveMulticache.extractAll(boxName);
+  Future<List<ListSight>> getAllFavourites() async {
+    await hiveCache.createOrOpen(boxName);
+
+    Iterable<ListSight> iterable = hiveCache.extractAll(boxName);
     
     late List<ListSight> favourites;
     if (iterable.isNotEmpty) {
-      favourites = hiveMulticache.extractAll(boxName).toList();
+      favourites = iterable.toList();
     } else {
       return [];
     }
@@ -26,8 +30,8 @@ class FavouritesRepo {
     return favourites;
   }
 
-  void addFavourite(ListSight sight) {
-    hiveMulticache.createOrOpen(boxName);
-    hiveMulticache.save(boxName, sight.title, sight);
+  void addFavourite(ListSight sight) async {
+    await hiveCache.createOrOpen(boxName);
+    hiveCache.save(sight.title, sight);
   }
 }

@@ -15,15 +15,15 @@ class FavouritesState extends ConsumerState<FavouritesFuture> {
 
   @override
   Widget build(BuildContext context) {
-    final favourite = ref.watch(favouritesScreenStateProvider.future);
+    final favouriteNotifier = ref.read(favouritesScreenStateProvider.notifier);
 
-    return FutureBuilder(future: favourite, builder: (context, snapshot){
-      if(snapshot.hasData){
-        return ListView.builder(itemBuilder: (context, index) => CustomCard(sight: snapshot.data![index]));
-      }else if(snapshot.hasData || snapshot.data!.isEmpty){
+    return FutureBuilder(future: favouriteNotifier.getFavourites(), builder: (context, snapshot){
+      if(snapshot.hasData && snapshot.data!.isNotEmpty){
+        return ListView.builder(itemCount: snapshot.data!.length, itemBuilder: (context, index) => CustomCard(sight: snapshot.data![index]));
+      }else if(snapshot.hasData && snapshot.data!.isEmpty){
         return Center(child: Text("No data yet. :)", style: Theme.of(context).textTheme.displayMedium));
       }else if(snapshot.hasError){
-        return Center(child: Text("Error 404.", style: Theme.of(context).textTheme.displayMedium));
+        return Center(child: Text(snapshot.error.toString(), style: Theme.of(context).textTheme.displayMedium));
       }else{
         return Container(
               width: 75,
@@ -58,4 +58,3 @@ class FavouritesState extends ConsumerState<FavouritesFuture> {
     //   }
     // });
   }
-}

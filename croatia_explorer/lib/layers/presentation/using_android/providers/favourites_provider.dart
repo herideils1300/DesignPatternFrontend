@@ -6,18 +6,22 @@ import 'package:croatia_explorer/layers/domain/sight.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class FavouritesProvider extends AsyncNotifier<List<ListSight>> {
+class FavouritesProvider extends StateNotifier<List<ListSight>> {
   final client = SightsClient(Dio(BaseOptions()));
   final FavouritesRepo favRepo = FavouritesRepo("croatia_explorer/lib/localDB");
   
-  FavouritesProvider();
+  FavouritesProvider(super._state);
 
   void addFavourite(ListSight sight){
     favRepo.addFavourite(sight);
   }
 
+  void removeFavourite(String key){
+    favRepo.remove(key);
+  }
+
   void determineFavourites(List<ListSight> fetchedSights) async {
-    Iterable<ListSight> allFavourites = favRepo.getAllFavourites();
+    Iterable<ListSight> allFavourites = await favRepo.getAllFavourites();
 
     for (var plainSight in fetchedSights) {
       if(allFavourites.any((favourite) => favourite == plainSight)){
@@ -26,18 +30,13 @@ class FavouritesProvider extends AsyncNotifier<List<ListSight>> {
     }
     
   }
-  FutureOr<List<ListSight>> _getFavourites() {
-    return favRepo.getAllFavourites().toList();
-  }
-
-  @override
-  FutureOr<List<ListSight>> build() {
-    return _getFavourites();
+  Future<List<ListSight>> getFavourites() async {
+    return favRepo.getAllFavourites();
   }
 
 
 }
 
-final favouritesScreenStateProvider = AsyncNotifierProvider<FavouritesProvider, List<ListSight>>(() {
-  return FavouritesProvider();
+final favouritesScreenStateProvider = StateNotifierProvider<FavouritesProvider, List<ListSight>>((ref) {
+  return FavouritesProvider([]);
 });

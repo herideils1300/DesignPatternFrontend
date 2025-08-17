@@ -104,14 +104,26 @@ class CustomCard extends ConsumerWidget {
                                     color: Colors.white,
                                     onPressed: () {
                                       favouriteNotifier.value = !value;
-                                      favouritesStateProvier.addFavourite(sight);
+                                      sight.favourite = favouriteNotifier.value;
+                                      if(favouriteNotifier.value){
+                                        favouritesStateProvier.addFavourite(sight);
+                                      }else{
+                                        favouritesStateProvier.removeFavourite(sight.title);
+                                      }
+                                      
                                     })
                                 : IconButton(
                                     icon: const Icon(Icons.favorite_outline),
                                     color: Colors.white,
                                     onPressed: () {
                                       favouriteNotifier.value = !value;
-                                      favouritesStateProvier.addFavourite(sight);
+                                      sight.favourite = favouriteNotifier.value;
+                                      if(favouriteNotifier.value){
+                                        favouritesStateProvier.addFavourite(sight);
+                                      }else{
+                                        favouritesStateProvier.removeFavourite(sight.title);
+                                      }
+                                      
                                     })),
                             valueListenable: favouriteNotifier,
                           )
