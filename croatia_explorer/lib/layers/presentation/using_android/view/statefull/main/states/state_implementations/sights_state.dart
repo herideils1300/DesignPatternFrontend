@@ -1,5 +1,5 @@
 
-import 'package:croatia_explorer/layers/presentation/using_android/view/statefull/futures/sights_future.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/view/statefull/main/futures/sights_future.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

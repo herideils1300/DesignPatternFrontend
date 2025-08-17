@@ -1,4 +1,3 @@
-import 'package:croatia_explorer/layers/application/mappers/create.dart';
 import 'package:croatia_explorer/layers/presentation/using_android/view/statefull/main/screens/main_screen.dart';
 import 'package:croatia_explorer/layers/presentation/using_android/view/stateless/login/login_screen.dart';
 import 'package:croatia_explorer/layers/presentation/using_android/view/stateless/recover/password_resending_screen.dart';
@@ -10,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
-  createMappers();
+
   runApp(const ProviderScope(child: MyApp()));
 }
 

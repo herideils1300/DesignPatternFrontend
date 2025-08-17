@@ -5,12 +5,12 @@ import 'package:croatia_explorer/layers/domain/sight.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class SightsProvider extends AsyncNotifier<List<ListSight>> {
+class SightsProvider extends AsyncNotifier<List<ModelSight>> {
   late final SightsClient client;
   SightsProvider();
 
   @override
-  FutureOr<List<ListSight>> build() {
+  FutureOr<List<ModelSight>> build() {
     client = SightsClient(Dio(BaseOptions(headers: {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods":
@@ -22,11 +22,11 @@ class SightsProvider extends AsyncNotifier<List<ListSight>> {
     return getAllSights();
   }
 
-  Future<List<ListSight>> getAllSights() async {
+  Future<List<ModelSight>> getAllSights() async {
     List<SightDto> sightDtos = await client.getAllSights();
 
-    List<ListSight> listSights = sightDtos.map((element) {
-      return ListSight(element.title, element.address, element.lat, element.lng,
+    List<ModelSight> listSights = sightDtos.map((element) {
+      return ModelSight(element.title, element.description, element.address, element.lat, element.lng,
           element.rating, element.imageUrl, false);
     }).toList();
 
@@ -35,6 +35,6 @@ class SightsProvider extends AsyncNotifier<List<ListSight>> {
 }
 
 final sightsScreenStateProvider =
-    AsyncNotifierProvider<SightsProvider, List<ListSight>>(() {
+    AsyncNotifierProvider<SightsProvider, List<ModelSight>>(() {
   return SightsProvider();
 });

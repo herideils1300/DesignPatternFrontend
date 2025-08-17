@@ -6,13 +6,13 @@ import 'package:croatia_explorer/layers/domain/sight.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class FavouritesProvider extends StateNotifier<List<ListSight>> {
+class FavouritesProvider extends StateNotifier<List<ModelSight>> {
   final client = SightsClient(Dio(BaseOptions()));
   final FavouritesRepo favRepo = FavouritesRepo("croatia_explorer/lib/localDB");
 
   FavouritesProvider(super._state);
 
-  void addFavourite(ListSight sight) {
+  void addFavourite(ModelSight sight) {
     favRepo.addFavourite(sight);
   }
 
@@ -20,20 +20,20 @@ class FavouritesProvider extends StateNotifier<List<ListSight>> {
     favRepo.remove(key);
   }
 
-  void determineFavourite(ListSight fetchedSight) async {
-    Iterable<ListSight> allFavourites = await favRepo.getAllFavourites();
+  void determineFavourite(ModelSight fetchedSight) async {
+    Iterable<ModelSight> allFavourites = await favRepo.getAllFavourites();
 
     if (allFavourites.any((sight) => sight == fetchedSight)) {
       fetchedSight.favourite = true;
     }
   }
 
-  Future<List<ListSight>> getFavourites() async {
+  Future<List<ModelSight>> getFavourites() async {
     return favRepo.getAllFavourites();
   }
 }
 
 final favouritesScreenStateProvider =
-    StateNotifierProvider<FavouritesProvider, List<ListSight>>((ref) {
+    StateNotifierProvider<FavouritesProvider, List<ModelSight>>((ref) {
   return FavouritesProvider([]);
 });

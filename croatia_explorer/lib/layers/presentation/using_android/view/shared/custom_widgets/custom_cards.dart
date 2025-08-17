@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class CustomCard extends ConsumerWidget {
-  final ListSight sight;
+  final ModelSight sight;
 
   const CustomCard({super.key, required this.sight});
 
