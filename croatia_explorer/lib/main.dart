@@ -1,3 +1,4 @@
+import 'package:croatia_explorer/layers/presentation/using_android/view/statefull/details/details_screen.dart';
 import 'package:croatia_explorer/layers/presentation/using_android/view/statefull/main/screens/main_screen.dart';
 import 'package:croatia_explorer/layers/presentation/using_android/view/stateless/login/login_screen.dart';
 import 'package:croatia_explorer/layers/presentation/using_android/view/stateless/recover/password_resending_screen.dart';
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Project',
       initialRoute: '/',
+
       routes: {
         '/': (context) => const SplashScreenWidget(),
         '/login': (context) => const LoginScreenWidget(),
@@ -35,6 +37,7 @@ class MyApp extends StatelessWidget {
         '/home': (context) => const MainScreenWidget(),
         '/verifyEmail': (context) => const VerifyEmailScreenWidget(),
         '/resetPassword': (context) => const PasswordResendingScreenWidget(),
+        '/details': (context) => const DetailsScreen()
         //'/sendPassword' : (context) =>
       },
       theme: ThemeData.from(

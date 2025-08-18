@@ -6,44 +6,47 @@ part of '../sight.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class ListSightAdapter extends TypeAdapter<ListSight> {
+class ModelSightAdapter extends TypeAdapter<ModelSight> {
   @override
   final int typeId = 1;
 
   @override
-  ListSight read(BinaryReader reader) {
+  ModelSight read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return ListSight(
+    return ModelSight(
       fields[0] as String,
+      fields[2] as String,
       fields[1] as String,
-      fields[2] as double,
       fields[3] as double,
-      fields[4] as int,
-      fields[5] as String,
-      fields[6] as bool,
+      fields[4] as double,
+      fields[5] as int,
+      fields[6] as String,
+      fields[7] as bool,
     );
   }
 
   @override
-  void write(BinaryWriter writer, ListSight obj) {
+  void write(BinaryWriter writer, ModelSight obj) {
     writer
-      ..writeByte(7)
+      ..writeByte(8)
       ..writeByte(0)
       ..write(obj.title)
       ..writeByte(1)
-      ..write(obj.address)
+      ..write(obj.description)
       ..writeByte(2)
-      ..write(obj.lat)
+      ..write(obj.address)
       ..writeByte(3)
-      ..write(obj.lng)
+      ..write(obj.lat)
       ..writeByte(4)
-      ..write(obj.rating)
+      ..write(obj.lng)
       ..writeByte(5)
-      ..write(obj.imageUrl)
+      ..write(obj.rating)
       ..writeByte(6)
+      ..write(obj.imageUrl)
+      ..writeByte(7)
       ..write(obj.favourite);
   }
 
@@ -53,7 +56,7 @@ class ListSightAdapter extends TypeAdapter<ListSight> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is ListSightAdapter &&
+      other is ModelSightAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

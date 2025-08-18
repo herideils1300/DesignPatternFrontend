@@ -9,7 +9,7 @@ class Cacher<E> {
   Cacher() {
     Hive.initFlutter();
     if (!Hive.isAdapterRegistered(1)) {
-      Hive.registerAdapter(ListSightAdapter());
+      Hive.registerAdapter(ModelSightAdapter());
     }
   }
 
