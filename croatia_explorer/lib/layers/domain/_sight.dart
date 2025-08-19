@@ -1,6 +1,6 @@
 import 'package:hive_flutter/adapters.dart';
 
-part "adapters/sight.g.dart";
+part '../domain/adapters/sight.g.dart';
 
 @HiveType(typeId: 1)
 class ModelSight {

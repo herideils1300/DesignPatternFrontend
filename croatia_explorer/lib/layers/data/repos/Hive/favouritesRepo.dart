@@ -1,7 +1,7 @@
 // ignore: file_names
 
 import 'package:croatia_explorer/layers/application/cachers/hive_multicache.dart';
-import 'package:croatia_explorer/layers/domain/sight.dart';
+import 'package:croatia_explorer/layers/domain/_sight.dart';
 
 class FavouritesRepo {
   final boxName = "sightsBox";

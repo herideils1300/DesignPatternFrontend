@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:croatia_explorer/layers/domain/sight.dart';
+import 'package:croatia_explorer/layers/domain/_sight.dart';
 import 'package:hive_flutter/adapters.dart';
 
 class Cacher<E> {

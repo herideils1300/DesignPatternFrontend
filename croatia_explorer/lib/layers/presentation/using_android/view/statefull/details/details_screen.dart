@@ -1,4 +1,4 @@
-import 'package:croatia_explorer/layers/domain/Sight.dart';
+import 'package:croatia_explorer/layers/domain/_sight.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
