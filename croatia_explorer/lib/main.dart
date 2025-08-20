@@ -5,12 +5,13 @@ import 'package:croatia_explorer/layers/presentation/using_android/view/stateles
 import 'package:croatia_explorer/layers/presentation/using_android/view/stateless/signUp/register_screen.dart';
 import 'package:croatia_explorer/layers/presentation/using_android/view/stateless/generic/splash_screen.dart';
 import 'package:croatia_explorer/layers/presentation/using_android/view/stateless/recover/verify_email_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flex_seed_scheme/flex_seed_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
-
+  Firebase.initializeApp();
   runApp(const ProviderScope(child: MyApp()));
 }
 

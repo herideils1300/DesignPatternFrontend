@@ -38,15 +38,18 @@ class PasswordResendingScreenState
               style: Theme.of(context).textTheme.displayMedium,
             ),
           ),
-          TextFormFieldWidget((String? value) {
-            if (value!.isEmpty) {
-              return "The field cannot stay empty.";
-            }
-            
-            return "";
-          },
-              label: "Email",
-              marginInsets: CustomSharedConstants.boxInsets(56, 30)),
+          TextFormFieldWidget(
+            validation: (String? value) {
+              if (value!.isEmpty) {
+                return "The field cannot stay empty.";
+              }
+
+              return "";
+            },
+            label: "Email",
+            marginInsets: CustomSharedConstants.boxInsets(56, 30),
+            onSaved: (String? newValue) {},
+          ),
           ButtonWidget(
               onPressed: () {
                 ScaffoldMessenger.of(context).showSnackBar(snackbar);

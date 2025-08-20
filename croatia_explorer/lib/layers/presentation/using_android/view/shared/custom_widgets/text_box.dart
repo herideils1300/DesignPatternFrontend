@@ -7,10 +7,15 @@ class TextFormFieldWidget extends StatelessWidget {
   final EdgeInsets marginInsets;
   // ignore: prefer_function_declarations_over_variables
   FormFieldValidator<String> validation = (String? value) => "";
+  void Function(String? newValue)? onSaved = (newValue) => "";
 
-
-  TextFormFieldWidget(this.validation,
-      {super.key, controller, required this.label, required this.marginInsets});
+  TextFormFieldWidget(
+      {super.key,
+      controller,
+      required this.label,
+      required this.marginInsets,
+      required this.validation,
+      this.onSaved});
 
   @override
   Widget build(BuildContext context) {
@@ -19,16 +24,18 @@ class TextFormFieldWidget extends StatelessWidget {
       child: Column(
         children: [
           TextFormField(
+            onSaved: onSaved,
             controller: controller,
             decoration: InputDecoration(
                 labelText: label,
                 labelStyle: Theme.of(context).textTheme.displayMedium,
                 border: OutlineInputBorder(
-                    borderSide:
-                        BorderSide(color: Theme.of(context).colorScheme.tertiary),
+                    borderSide: BorderSide(
+                        color: Theme.of(context).colorScheme.tertiary),
                     borderRadius:
                         const BorderRadius.all(Radius.circular(20.0))),
-                constraints: BoxConstraints.loose(const Size(double.infinity, 60))),
+                constraints:
+                    BoxConstraints.loose(const Size(double.infinity, 80))),
             validator: validation,
           ),
         ],

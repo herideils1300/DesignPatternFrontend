@@ -1,4 +1,5 @@
 import 'package:croatia_explorer/layers/application/constants/global.dart';
+import 'package:croatia_explorer/layers/domain/credentials.dart';
 import 'package:croatia_explorer/layers/presentation/using_android/view/shared/constants/values.dart';
 import 'package:croatia_explorer/layers/presentation/using_android/view/shared/custom_widgets/button.dart';
 import 'package:croatia_explorer/layers/presentation/using_android/view/shared/custom_widgets/text_box.dart';
@@ -14,6 +15,8 @@ class LoginScreenWidget extends StatefulWidget {
 
 class LoginScreenState extends State<LoginScreenWidget> {
   final GlobalKey<FormState> _key = GlobalKey<FormState>();
+  StoredCredentials creds = StoredCredentials();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +39,9 @@ class LoginScreenState extends State<LoginScreenWidget> {
                 TextFormFieldWidget(
                     label: "Email",
                     marginInsets: CustomSharedConstants.boxInsets(24, 12),
-                    (String? value) {
+                    onSaved: (String? newValue) {
+                      creds.email = newValue!;
+                    }, validation: (String? value) {
                   RegExp regex = RegExp(GlobalConstants.emailPattern);
                   if (value!.isEmpty) {
                     return "Please enter an Email.";
@@ -47,9 +52,12 @@ class LoginScreenState extends State<LoginScreenWidget> {
                   return null;
                 }),
                 TextFormFieldWidget(
+                  onSaved: (newValue){
+                    creds.password = newValue!;
+                  },
                     label: "Password",
                     marginInsets: CustomSharedConstants.boxInsets(12, 13),
-                    (String? value) {
+                    validation: (String? value) {
                   if (value!.isEmpty) {
                     return "Please enter an Email.";
                   }
@@ -59,14 +67,18 @@ class LoginScreenState extends State<LoginScreenWidget> {
                     margin: const EdgeInsets.only(right: 12, bottom: 23.5),
                     alignment: Alignment.centerRight,
                     child: InkWell(
-                      onTap: () => Navigator.of(context).pushNamed("/resetPassword"),
+                      onTap: () =>
+                          Navigator.of(context).pushNamed("/resetPassword"),
                       child: Text("Forgot password?",
                           textAlign: TextAlign.end,
                           style: Theme.of(context).textTheme.displayMedium),
                     )),
                 ButtonWidget(
                   onPressed: () {
-                    Navigator.of(context).pushNamed("/home");
+                    if (_key.currentState!.validate()) {
+                      _key.currentState!.save();
+                      Navigator.of(context).pushNamed("/home");
+                    }
                   },
                   textContent: "Sign in",
                   marginInsets: CustomSharedConstants.boxInsets(23.5, 0),
@@ -80,7 +92,8 @@ class LoginScreenState extends State<LoginScreenWidget> {
                       Container(
                         margin: const EdgeInsets.only(left: 5.0),
                         child: InkWell(
-                          onTap: () => Navigator.of(context).pushNamed("/register"),
+                          onTap: () =>
+                              Navigator.of(context).pushNamed("/register"),
                           child: Text(
                             "Sign up",
                             style: TextStyle(

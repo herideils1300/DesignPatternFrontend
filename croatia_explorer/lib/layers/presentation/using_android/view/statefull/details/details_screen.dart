@@ -1,5 +1,5 @@
 import 'package:croatia_explorer/layers/domain/_sight.dart';
-import 'package:croatia_explorer/layers/presentation/using_android/view/shared/constants/values.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/providers/favourites_provider.dart';
 import 'package:croatia_explorer/layers/presentation/using_android/view/shared/custom_widgets/button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -11,7 +11,8 @@ class DetailsScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final sight = (ModalRoute.of(context)!.settings.arguments as ModelSight);
-
+    ValueNotifier<ModelSight> sightChangedNotifier =
+        ValueNotifier<ModelSight>(sight);
     Image image = Image.network(sight.imageUrl, fit: BoxFit.fill);
 
     List<Icon> starIcons = <Icon>[];
@@ -25,17 +26,29 @@ class DetailsScreen extends ConsumerWidget {
     }
 
     return Scaffold(
-      persistentFooterButtons: const [],
-      floatingActionButton: IconButton(
-        icon: const Icon(Icons.arrow_back_ios),
-          onPressed: () {Navigator.of(context).pop();},
-          style: ElevatedButton.styleFrom(
-            shape: const CircleBorder(),
-            backgroundColor: Colors.white, // <-- Button color
-            foregroundColor: Colors.black,
-            alignment: Alignment.center // <-- Splash color
-          )),
-      floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
+      floatingActionButton: ValueListenableBuilder(
+        valueListenable: sightChangedNotifier,
+        builder: (context, value, child) => FloatingActionButton(
+          onPressed: () {
+            sightChangedNotifier.value.favourite =
+                !sightChangedNotifier.value.favourite;
+            if (sight.favourite) {
+              ref
+                  .read(favouritesScreenStateProvider.notifier)
+                  .addFavourite(sight);
+            } else {
+              ref
+                  .read(favouritesScreenStateProvider.notifier)
+                  .removeFavourite(sight.title);
+            }
+          },
+          shape: const CircleBorder(),
+          backgroundColor: Colors.black, // <-- Button color
+          child: Icon(
+              (value.favourite) ? Icons.favorite : Icons.favorite_border,
+              color: Colors.white),
+        ),
+      ),
       bottomSheet: SingleChildScrollView(
         child: Container(
             width: double.infinity,
@@ -74,18 +87,42 @@ class DetailsScreen extends ConsumerWidget {
                       alignment: Alignment.bottomCenter,
                       child: ButtonWidget(
                           onPressed: () {
-                            url_launcher.launchUrl(Uri.parse("https://www.google.com/maps/search/@${sight.lat},${sight.lng}"));
+                            url_launcher.launchUrl(Uri.parse(
+                                "https://www.google.com/maps/search/@${sight.lat},${sight.lng}"));
                           },
                           textContent: "Show on maps",
-                          marginInsets:
-                              EdgeInsets.zero))
+                          marginInsets: EdgeInsets.zero))
                 ],
               ),
             )),
       ),
       body: Align(
           alignment: Alignment.topCenter,
-          child: SizedBox(width: MediaQuery.sizeOf(context).width, child: image)),
+          child: SizedBox(
+              width: MediaQuery.sizeOf(context).width,
+              child: Stack(fit: StackFit.passthrough, children: [
+                image,
+                Container(
+                  alignment: Alignment.topLeft,
+                  margin: const EdgeInsets.only(left: 20),
+                  child: IconButton(
+                      alignment: const Alignment(15, 0),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      icon: Container(
+                        width: 50,
+                        height: 50,
+                          decoration: BoxDecoration(
+                            backgroundBlendMode: BlendMode.dstIn,
+                              shape: BoxShape.circle,
+                              gradient: LinearGradient(colors: [
+                                Theme.of(context).colorScheme.primary,
+                                Theme.of(context).colorScheme.secondary
+                              ], begin: Alignment.centerLeft, end: Alignment.centerRight)),
+                          child: const Icon(Icons.arrow_back_ios_new, blendMode: BlendMode.modulate,))),
+                ),
+              ]))),
     );
   }
 }
