@@ -1,17 +1,18 @@
-import 'package:croatia_explorer/layers/presentation/using_android/view/shared/custom_widgets/image.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/shared/custom_widgets/image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lottie/lottie.dart';
 
-class SplashScreenWidget extends StatefulWidget {
+class SplashScreenWidget extends ConsumerStatefulWidget {
   const SplashScreenWidget({super.key});
 
   @override
-  State<StatefulWidget> createState() => SplashScreenState();
+  ConsumerState<SplashScreenWidget> createState() => SplashScreenState();
 
 
 }
 
-class SplashScreenState extends State<SplashScreenWidget> {
+class SplashScreenState extends ConsumerState<SplashScreenWidget> {
   @override
   void initState() {
     NavigatorState nState = Navigator.of(context);

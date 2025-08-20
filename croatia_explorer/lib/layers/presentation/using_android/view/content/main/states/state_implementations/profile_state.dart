@@ -1,5 +1,5 @@
-import 'package:croatia_explorer/layers/presentation/using_android/view/shared/constants/values.dart';
-import 'package:croatia_explorer/layers/presentation/using_android/view/shared/custom_widgets/button.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/shared/constants/values.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/shared/custom_widgets/button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

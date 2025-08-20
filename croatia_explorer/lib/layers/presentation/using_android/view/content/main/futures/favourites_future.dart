@@ -1,5 +1,5 @@
 import 'package:croatia_explorer/layers/presentation/using_android/providers/favourites_provider.dart';
-import 'package:croatia_explorer/layers/presentation/using_android/view/shared/custom_widgets/custom_cards.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/shared/custom_widgets/custom_cards.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lottie/lottie.dart';

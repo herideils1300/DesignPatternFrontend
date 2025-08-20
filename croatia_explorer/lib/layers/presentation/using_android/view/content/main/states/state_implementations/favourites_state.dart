@@ -1,4 +1,4 @@
-import 'package:croatia_explorer/layers/presentation/using_android/view/statefull/main/futures/favourites_future.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/view/content/main/futures/favourites_future.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

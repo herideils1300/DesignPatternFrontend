@@ -1,6 +1,6 @@
 import 'package:croatia_explorer/layers/domain/_sight.dart';
 import 'package:croatia_explorer/layers/presentation/using_android/providers/favourites_provider.dart';
-import 'package:croatia_explorer/layers/presentation/using_android/view/shared/gradients/gradient.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/shared/gradients/gradient.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

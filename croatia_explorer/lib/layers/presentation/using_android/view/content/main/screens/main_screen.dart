@@ -1,9 +1,9 @@
 import 'package:croatia_explorer/layers/application/constants/global.dart';
-import 'package:croatia_explorer/layers/presentation/using_android/view/shared/custom_widgets/app_bar.dart';
-import 'package:croatia_explorer/layers/presentation/using_android/view/statefull/main/states/screen_states.dart';
-import 'package:croatia_explorer/layers/presentation/using_android/view/statefull/main/states/state_implementations/favourites_state.dart';
-import 'package:croatia_explorer/layers/presentation/using_android/view/statefull/main/states/state_implementations/profile_state.dart';
-import 'package:croatia_explorer/layers/presentation/using_android/view/statefull/main/states/state_implementations/sights_state.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/shared/custom_widgets/app_bar.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/view/content/main/states/screen_states.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/view/content/main/states/state_implementations/favourites_state.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/view/content/main/states/state_implementations/profile_state.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/view/content/main/states/state_implementations/sights_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

@@ -1,4 +1,4 @@
-import 'package:croatia_explorer/layers/presentation/using_android/view/statefull/main/states/screen_states.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/view/content/main/states/screen_states.dart';
 
 class GlobalConstants{
   static String emailPattern = r"(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'"

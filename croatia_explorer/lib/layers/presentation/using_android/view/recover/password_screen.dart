@@ -1,17 +1,18 @@
-import 'package:croatia_explorer/layers/presentation/using_android/view/shared/constants/values.dart';
-import 'package:croatia_explorer/layers/presentation/using_android/view/shared/custom_widgets/app_bar.dart';
-import 'package:croatia_explorer/layers/presentation/using_android/view/shared/custom_widgets/image.dart';
-import 'package:croatia_explorer/layers/presentation/using_android/view/shared/custom_widgets/snack_bar.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/shared/constants/values.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/shared/custom_widgets/app_bar.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/shared/custom_widgets/image.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/shared/custom_widgets/snack_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class VerifyEmailScreenWidget extends StatefulWidget {
-  const VerifyEmailScreenWidget({super.key});
+class PasswordSentWidget extends ConsumerStatefulWidget {
+  const PasswordSentWidget({super.key});
 
   @override
-  State<StatefulWidget> createState() => VerifyEmailScreenState();
+  ConsumerState<ConsumerStatefulWidget> createState() => PasswordSentState();
 }
 
-class VerifyEmailScreenState extends State<VerifyEmailScreenWidget> {
+class PasswordSentState extends ConsumerState<ConsumerStatefulWidget> {
   @override
   Widget build(BuildContext context) {
     SnackBar snackBar = SnackBarWidget.create(context, "Email resent.");
@@ -34,7 +35,7 @@ class VerifyEmailScreenState extends State<VerifyEmailScreenWidget> {
                             fit: BoxFit.fitHeight,
                             height: 200)),
                     Text(
-                      "Please check your inbox and verify your email address.",
+                      "Please check your inbox and reset your password.",
                       style: Theme.of(context).textTheme.displayMedium,
                       textAlign: TextAlign.center,
                     )

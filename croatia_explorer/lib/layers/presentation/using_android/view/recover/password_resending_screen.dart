@@ -1,20 +1,21 @@
-import 'package:croatia_explorer/layers/presentation/using_android/view/shared/constants/values.dart';
-import 'package:croatia_explorer/layers/presentation/using_android/view/shared/custom_widgets/app_bar.dart';
-import 'package:croatia_explorer/layers/presentation/using_android/view/shared/custom_widgets/button.dart';
-import 'package:croatia_explorer/layers/presentation/using_android/view/shared/custom_widgets/image.dart';
-import 'package:croatia_explorer/layers/presentation/using_android/view/shared/custom_widgets/snack_bar.dart';
-import 'package:croatia_explorer/layers/presentation/using_android/view/shared/custom_widgets/text_box.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/shared/constants/values.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/shared/custom_widgets/app_bar.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/shared/custom_widgets/button.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/shared/custom_widgets/image.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/shared/custom_widgets/snack_bar.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/shared/custom_widgets/text_box.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class PasswordResendingScreenWidget extends StatefulWidget {
+class PasswordResendingScreenWidget extends ConsumerStatefulWidget {
   const PasswordResendingScreenWidget({super.key});
 
   @override
-  State<StatefulWidget> createState() => PasswordResendingScreenState();
+  ConsumerState<ConsumerStatefulWidget> createState() => PasswordResendingScreenState();
 }
 
 class PasswordResendingScreenState
-    extends State<PasswordResendingScreenWidget> {
+    extends ConsumerState<ConsumerStatefulWidget> {
   @override
   Widget build(BuildContext context) {
     SnackBar snackbar =
