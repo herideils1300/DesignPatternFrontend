@@ -6,7 +6,6 @@ import 'package:croatia_explorer/layers/presentation/using_android/shared/custom
 import 'package:croatia_explorer/layers/presentation/using_android/shared/custom_widgets/text_box.dart';
 import 'package:croatia_explorer/layers/presentation/using_android/shared/custom_widgets/image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class LoginScreenWidget extends ConsumerStatefulWidget {
@@ -19,7 +18,6 @@ class LoginScreenWidget extends ConsumerStatefulWidget {
 class LoginScreenState extends ConsumerState<LoginScreenWidget> {
 
   final GlobalKey<FormState> _key = GlobalKey<FormState>();
-  TextEditingController _otherErrorControler = TextEditingController();
   StoredCredentials creds = StoredCredentials();
   
 

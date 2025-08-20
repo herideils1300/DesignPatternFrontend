@@ -15,6 +15,10 @@ class ProfileProvider extends StateNotifier<List<User>>{
     storedCredentials = creds;
   }
 
+  void sendRecoveryMail(String email) async {
+    await auth.sendPasswordResetEmail(email: email);
+  }
+
   Object? getErrorIfPresent(){
     return (error != null) ? error : "";
   }
@@ -32,9 +36,9 @@ class ProfileProvider extends StateNotifier<List<User>>{
     }else{
       state.add(auth.currentUser!);
     }
-    }on FirebaseAuthException catch (_, e){
+    }catch (e){
       error = e;
-      throw e;
+      rethrow;
     }
     
   }

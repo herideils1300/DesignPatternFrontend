@@ -1,3 +1,4 @@
+import 'package:croatia_explorer/layers/presentation/using_android/providers/profile_provider.dart';
 import 'package:croatia_explorer/layers/presentation/using_android/shared/constants/values.dart';
 import 'package:croatia_explorer/layers/presentation/using_android/shared/custom_widgets/app_bar.dart';
 import 'package:croatia_explorer/layers/presentation/using_android/shared/custom_widgets/button.dart';
@@ -11,11 +12,13 @@ class PasswordResendingScreenWidget extends ConsumerStatefulWidget {
   const PasswordResendingScreenWidget({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => PasswordResendingScreenState();
+  ConsumerState<ConsumerStatefulWidget> createState() =>
+      PasswordResendingScreenState();
 }
 
 class PasswordResendingScreenState
     extends ConsumerState<ConsumerStatefulWidget> {
+  GlobalKey<FormState> _key = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     SnackBar snackbar =
@@ -49,10 +52,16 @@ class PasswordResendingScreenState
             },
             label: "Email",
             marginInsets: CustomSharedConstants.boxInsets(56, 30),
-            onSaved: (String? newValue) {},
+            onSaved: (String? newValue) {
+              ref.read(profileNotifier.notifier).sendRecoveryMail(newValue!);
+            },
           ),
           ButtonWidget(
               onPressed: () {
+                if (_key.currentState!.validate()) {
+                  _key.currentState!.save();
+                }
+
                 ScaffoldMessenger.of(context).showSnackBar(snackbar);
               },
               textContent: "Reset password",
