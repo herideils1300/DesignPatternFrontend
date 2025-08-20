@@ -26,7 +26,7 @@ class SightsProvider extends AsyncNotifier<List<ModelSight>> {
     List<SightDto> sightDtos = await client.getAllSights();
 
     List<ModelSight> listSights = sightDtos.map((element) {
-      return ModelSight(element.title, element.description, element.address, element.lat, element.lng,
+      return ModelSight(element.title, element.address, element.description, element.lat, element.lng,
           element.rating, element.imageUrl, false);
     }).toList();
 
