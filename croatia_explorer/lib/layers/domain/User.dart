@@ -1,7 +1,6 @@
 class User{
-  String image = "";
-  String name = "";
   String email = "";
+  String password = "";
 
-  User(this.email, this.name, this.image);
+  User(this.email, this.password);
 }

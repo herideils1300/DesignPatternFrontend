@@ -5,6 +5,7 @@ class TextFormFieldWidget extends StatelessWidget {
   TextEditingController controller = TextEditingController();
   final String label;
   final EdgeInsets marginInsets;
+  bool obscure;
   // ignore: prefer_function_declarations_over_variables
   FormFieldValidator<String> validation = (String? value) => "";
   void Function(String? newValue)? onSaved = (newValue) => "";
@@ -15,6 +16,7 @@ class TextFormFieldWidget extends StatelessWidget {
       required this.label,
       required this.marginInsets,
       required this.validation,
+      this.obscure = false,
       this.onSaved});
 
   @override
@@ -24,6 +26,7 @@ class TextFormFieldWidget extends StatelessWidget {
       child: Column(
         children: [
           TextFormField(
+            obscureText: obscure,
             onSaved: onSaved,
             controller: controller,
             decoration: InputDecoration(

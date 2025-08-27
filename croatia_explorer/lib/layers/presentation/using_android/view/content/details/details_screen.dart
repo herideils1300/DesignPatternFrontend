@@ -1,3 +1,4 @@
+
 import 'package:croatia_explorer/layers/domain/_sight.dart';
 import 'package:croatia_explorer/layers/presentation/using_android/providers/favourites_provider.dart';
 import 'package:croatia_explorer/layers/presentation/using_android/shared/custom_widgets/button.dart';
@@ -82,7 +83,7 @@ class DetailsScreen extends ConsumerWidget {
                   const SizedBox(height: 25),
                   Text(sight.description,
                       style: Theme.of(context).textTheme.bodySmall),
-                  const Expanded(child: SizedBox()),
+                  const SizedBox(),
                   Align(
                       alignment: Alignment.bottomCenter,
                       child: ButtonWidget(

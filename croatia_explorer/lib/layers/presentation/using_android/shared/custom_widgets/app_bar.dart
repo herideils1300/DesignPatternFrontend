@@ -20,7 +20,7 @@ AppBar appBar(BuildContext context, String title) => AppBar(
       toolbarHeight: 60,
     );
 
-AppBar switchNameAppBar(BuildContext context, int index){
+AppBar? switchNameAppBar(BuildContext context, int index){
   switch(index){
     case 0:{
       return appBar(context, "Places");
@@ -29,7 +29,7 @@ AppBar switchNameAppBar(BuildContext context, int index){
       return appBar(context, "Favourites");
     }
     case 2:{
-      return appBar(context, "Profile");
+      return null;
     }
   }
 

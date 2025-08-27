@@ -9,11 +9,10 @@ class SightsFuture extends ConsumerStatefulWidget {
   const SightsFuture({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => SightsFutureWidget();
+  ConsumerState<ConsumerStatefulWidget> createState() => SightsFutureState();
 }
 
-class SightsFutureWidget extends ConsumerState<SightsFuture> {
-
+class SightsFutureState extends ConsumerState<SightsFuture> {
   late SightsProvider notifier;
   late FavouritesProvider favouritesNotifier;
 
@@ -30,10 +29,12 @@ class SightsFutureWidget extends ConsumerState<SightsFuture> {
         future: ref.watch(sightsScreenStateProvider.future),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return ListView.builder(itemCount: snapshot.data!.length, itemBuilder: (context, index) {
-              favouritesNotifier.determineFavourite(snapshot.data![index]);
-              return CustomCard(sight: snapshot.data![index]);
-            });
+            return ListView.builder(
+                itemCount: snapshot.data!.length,
+                itemBuilder: (context, index) {
+                  favouritesNotifier.determineFavourite(snapshot.data![index]);
+                  return CustomCard(sight: snapshot.data![index]);
+                });
           } else if (snapshot.hasError) {
             throw Exception(snapshot.error);
           } else {
