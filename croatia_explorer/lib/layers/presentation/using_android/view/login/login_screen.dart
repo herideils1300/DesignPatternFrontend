@@ -54,6 +54,7 @@ class LoginScreenState extends ConsumerState<LoginScreenWidget> {
             onSaved: (newValue) {
               creds.password = newValue!;
             },
+            obscure: true,
             label: "Password",
             marginInsets: CustomSharedConstants.boxInsets(12, 13),
             validation: (String? value) {
@@ -75,20 +76,20 @@ class LoginScreenState extends ConsumerState<LoginScreenWidget> {
         const Spacer(),
         ButtonWidget(
           onPressed: () async {
-            if (_key.currentState!.validate()) {
-              _key.currentState!.save();
-              profileProvider.store(creds);
+            // if (_key.currentState!.validate()) {
+            //   _key.currentState!.save();
+            //   profileProvider.store(creds);
               AsyncData contextAsync = AsyncData<BuildContext>(context);
-              try {
-                await profileProvider.signInUser();
-                if (contextAsync.hasValue && !contextAsync.isLoading) {
+            //   try {
+            //     await profileProvider.signInUser();
+            //     if (contextAsync.hasValue && !contextAsync.isLoading) {
                   Navigator.pushNamed(contextAsync.value, "/home");
-                }
-              } catch (e) {
-                _key.currentState!.reset();
+            //     }
+            //   } catch (e) {
+            //     _key.currentState!.reset();
                 
-              }
-            }
+            //   }
+            // }
           },
           textContent: "Sign in",
           marginInsets: CustomSharedConstants.boxInsets(23.5, 0),

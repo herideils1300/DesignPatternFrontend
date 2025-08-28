@@ -2,6 +2,7 @@
 import 'package:croatia_explorer/layers/domain/_sight.dart';
 import 'package:croatia_explorer/layers/presentation/using_android/providers/favourites_provider.dart';
 import 'package:croatia_explorer/layers/presentation/using_android/shared/custom_widgets/button.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/shared/gradients/gradient.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart' as url_launcher;
@@ -11,9 +12,11 @@ class DetailsScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final sight = (ModalRoute.of(context)!.settings.arguments as ModelSight);
+    ModelSight sight = (ModalRoute.of(context)!.settings.arguments as ModelSight);
+
     ValueNotifier<ModelSight> sightChangedNotifier =
         ValueNotifier<ModelSight>(sight);
+
     Image image = Image.network(sight.imageUrl, fit: BoxFit.fill);
 
     List<Icon> starIcons = <Icon>[];
@@ -29,25 +32,35 @@ class DetailsScreen extends ConsumerWidget {
     return Scaffold(
       floatingActionButton: ValueListenableBuilder(
         valueListenable: sightChangedNotifier,
-        builder: (context, value, child) => FloatingActionButton(
-          onPressed: () {
-            sightChangedNotifier.value.favourite =
-                !sightChangedNotifier.value.favourite;
-            if (sight.favourite) {
-              ref
-                  .read(favouritesScreenStateProvider.notifier)
-                  .addFavourite(sight);
-            } else {
-              ref
-                  .read(favouritesScreenStateProvider.notifier)
-                  .removeFavourite(sight.title);
-            }
-          },
-          shape: const CircleBorder(),
-          backgroundColor: Colors.black, // <-- Button color
-          child: Icon(
-              (value.favourite) ? Icons.favorite : Icons.favorite_border,
-              color: Colors.white),
+        builder: (context, value, child) => Container(
+          decoration: BoxDecoration(
+            boxShadow: null,
+            gradient: linearGradient(Theme.of(context)),
+            shape: BoxShape.circle
+          ),
+          child: FloatingActionButton(
+            onPressed: () {
+              value.favourite =
+                  !value.favourite;
+              if (sight.favourite) {
+                ref
+                    .read(favouritesScreenStateProvider.notifier)
+                    .addFavourite(sight);
+              } else {
+                ref
+                    .read(favouritesScreenStateProvider.notifier)
+                    .removeFavourite(sight.title);
+              }
+            },
+            shape: const CircleBorder(),
+            elevation: 0,
+            hoverElevation: 0,
+            isExtended: false,
+            backgroundColor: Colors.transparent, // <-- Button color
+            child: Icon(
+                (value.favourite) ? Icons.favorite : Icons.favorite_border,
+                color: Colors.white),
+          ),
         ),
       ),
       bottomSheet: SingleChildScrollView(
@@ -83,7 +96,7 @@ class DetailsScreen extends ConsumerWidget {
                   const SizedBox(height: 25),
                   Text(sight.description,
                       style: Theme.of(context).textTheme.bodySmall),
-                  const SizedBox(),
+                  const Spacer(),
                   Align(
                       alignment: Alignment.bottomCenter,
                       child: ButtonWidget(
@@ -121,7 +134,7 @@ class DetailsScreen extends ConsumerWidget {
                                 Theme.of(context).colorScheme.primary,
                                 Theme.of(context).colorScheme.secondary
                               ], begin: Alignment.centerLeft, end: Alignment.centerRight)),
-                          child: const Icon(Icons.arrow_back_ios_new, blendMode: BlendMode.modulate,))),
+                          child: const Icon(Icons.arrow_back_ios_new))),
                 ),
               ]))),
     );

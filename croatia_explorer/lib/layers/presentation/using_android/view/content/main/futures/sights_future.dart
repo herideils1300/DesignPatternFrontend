@@ -1,7 +1,9 @@
 import 'package:croatia_explorer/layers/presentation/using_android/providers/favourites_provider.dart';
 import 'package:croatia_explorer/layers/presentation/using_android/providers/sights_provider.dart';
 import 'package:croatia_explorer/layers/presentation/using_android/shared/custom_widgets/custom_cards.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/shared/custom_widgets/image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lottie/lottie.dart';
 
@@ -36,7 +38,34 @@ class SightsFutureState extends ConsumerState<SightsFuture> {
                   return CustomCard(sight: snapshot.data![index]);
                 });
           } else if (snapshot.hasError) {
-            throw Exception(snapshot.error);
+            return const Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  ImageWidget("lib/assets/images/error_404_image.png"),
+                  Text(
+                    "There was an error.",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 18,
+                        fontFamily: 'Montserrat',
+                        color: Colors.black),
+                  ),
+                  Text(
+                    "Please try again later or check your internet connection.",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 14,
+                        fontFamily: 'Montserrat',
+                        color: Colors.black),
+                  )
+                ],
+              ),
+            );
+          } else if (snapshot.hasData && snapshot.data!.isEmpty) {
+            return const Center(child: Text("No places yet. :)"));
           } else {
             return Container(
               width: 75,

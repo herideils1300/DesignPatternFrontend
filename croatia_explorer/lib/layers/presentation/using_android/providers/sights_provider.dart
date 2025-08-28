@@ -23,7 +23,7 @@ class SightsProvider extends AsyncNotifier<List<ModelSight>> {
   }
 
   Future<List<ModelSight>> getAllSights() async {
-    List<SightDto> sightDtos = await client.getAllSights();
+    List<SightDto> sightDtos = await client.getAllSights().catchError((onError) => throw Exception(onError));
 
     List<ModelSight> listSights = sightDtos.map((element) {
       return ModelSight(element.title, element.address, element.description, element.lat, element.lng,

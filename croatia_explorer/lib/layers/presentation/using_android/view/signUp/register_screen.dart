@@ -69,6 +69,7 @@ class RegisterScreenState extends ConsumerState<RegisterScreenWidget> {
                   marginInsets: CustomSharedConstants.boxInsets(32, 15)),
               TextFormFieldWidget(
                   controller: _repeatPasswordController,
+                  obscure: true,
                   onSaved: (newValue) {
                     user.password = newValue!;
                     setState(() {
@@ -96,6 +97,7 @@ class RegisterScreenState extends ConsumerState<RegisterScreenWidget> {
 
                     return null;
                   },
+                  obscure: true,
                   label: "Confirm password",
                   marginInsets: CustomSharedConstants.boxInsets(15, 0)),
                   if (setError) Container(margin: CustomSharedConstants.boxInsets(10.0, 0), child: errorText,),

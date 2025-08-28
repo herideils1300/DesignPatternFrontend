@@ -12,7 +12,8 @@ class CustomCard extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ValueNotifier<bool> favouriteNotifier = ValueNotifier(sight.favourite);
-    FavouritesProvider favouritesStateProvier = ref.watch(favouritesScreenStateProvider.notifier);
+    FavouritesProvider favouritesStateProvier =
+        ref.watch(favouritesScreenStateProvider.notifier);
     ValueNotifier<int> ratingNotifier = ValueNotifier(sight.rating);
 
     List<Widget> stars = <ValueListenableBuilder>[];
@@ -26,7 +27,8 @@ class CustomCard extends ConsumerWidget {
                 icon: Icon(
                   (value > i) ? Icons.star : Icons.star_border,
                   color: Colors.amber,
-                )), valueListenable: ratingNotifier,
+                )),
+            valueListenable: ratingNotifier,
           ));
         } else {
           stars.add(ValueListenableBuilder(
@@ -35,7 +37,8 @@ class CustomCard extends ConsumerWidget {
                 icon: Icon(
                   (value > i) ? Icons.star : Icons.star_border,
                   color: Colors.amber,
-                )), valueListenable: ratingNotifier,
+                )),
+            valueListenable: ratingNotifier,
           ));
         }
       }
@@ -44,7 +47,7 @@ class CustomCard extends ConsumerWidget {
     setStars();
 
     return InkWell(
-      onTap: (){
+      onTap: () {
         Navigator.of(context).pushNamed("/details", arguments: sight);
       },
       child: Container(
@@ -59,7 +62,8 @@ class CustomCard extends ConsumerWidget {
               child: Container(
                 decoration: BoxDecoration(
                     gradient: linearGradient(Theme.of(context)),
-                    borderRadius: const BorderRadius.all(Radius.circular(15.0))),
+                    borderRadius:
+                        const BorderRadius.all(Radius.circular(15.0))),
                 child: Row(children: [
                   Container(
                       decoration: const BoxDecoration(
@@ -79,9 +83,12 @@ class CustomCard extends ConsumerWidget {
                                   fontSize: (sight.title.length > 20) ? 15 : 20,
                                   fontWeight: FontWeight.w700),
                               textAlign: TextAlign.left),
-                          const Text(
-                              "10 000, Zagreb" /*sight.address.substring(sight.address.lastIndexOf(","))*/,
-                              style: TextStyle(
+                          Text(
+                              (sight.address.length < 20)
+                                  ? sight.address
+                                  : sight.address
+                                      .substring(sight.address.indexOf(',') + 2),
+                              style: const TextStyle(
                                   fontSize: 14, fontWeight: FontWeight.w700),
                               textAlign: TextAlign.left),
                           Text("${sight.lat}, ${sight.lng}",
@@ -108,26 +115,30 @@ class CustomCard extends ConsumerWidget {
                                       color: Colors.white,
                                       onPressed: () {
                                         favouriteNotifier.value = !value;
-                                        sight.favourite = favouriteNotifier.value;
-                                        if(favouriteNotifier.value){
-                                          favouritesStateProvier.addFavourite(sight);
-                                        }else{
-                                          favouritesStateProvier.removeFavourite(sight.title);
+                                        sight.favourite =
+                                            favouriteNotifier.value;
+                                        if (favouriteNotifier.value) {
+                                          favouritesStateProvier
+                                              .addFavourite(sight);
+                                        } else {
+                                          favouritesStateProvier
+                                              .removeFavourite(sight.title);
                                         }
-                                        
                                       })
                                   : IconButton(
                                       icon: const Icon(Icons.favorite_outline),
                                       color: Colors.white,
                                       onPressed: () {
                                         favouriteNotifier.value = !value;
-                                        sight.favourite = favouriteNotifier.value;
-                                        if(favouriteNotifier.value){
-                                          favouritesStateProvier.addFavourite(sight);
-                                        }else{
-                                          favouritesStateProvier.removeFavourite(sight.title);
+                                        sight.favourite =
+                                            favouriteNotifier.value;
+                                        if (favouriteNotifier.value) {
+                                          favouritesStateProvier
+                                              .addFavourite(sight);
+                                        } else {
+                                          favouritesStateProvier
+                                              .removeFavourite(sight.title);
                                         }
-                                        
                                       })),
                               valueListenable: favouriteNotifier,
                             )
