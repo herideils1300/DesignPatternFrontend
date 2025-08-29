@@ -1,0 +1,2 @@
+C:/Users/franu/Desktop/Projects/Flutter/CE/CroatiaExplorer/croatia_explorer/android/app/.cxx/Debug/j71713h4/x86_64/CMakeFiles/edit_cache.dir
+C:/Users/franu/Desktop/Projects/Flutter/CE/CroatiaExplorer/croatia_explorer/android/app/.cxx/Debug/j71713h4/x86_64/CMakeFiles/rebuild_cache.dir
