@@ -10,7 +10,7 @@ part of '../abstract/sight_client.dart';
 
 class _SightsClient implements SightsClient {
   _SightsClient(this._dio, {this.baseUrl, this.errorLogger}) {
-    baseUrl ??= 'http://144.91.87.48:8080';
+    baseUrl ??= 'http://localhost:8080';
   }
 
   final Dio _dio;

@@ -4,7 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 part '../implementations/sight_client.g.dart';
 
-@RestApi(baseUrl: "http://144.91.87.48:8080")
+@RestApi(baseUrl: "http://localhost:8080")
 abstract class SightsClient {
 
     factory SightsClient(Dio dio) = _SightsClient;
