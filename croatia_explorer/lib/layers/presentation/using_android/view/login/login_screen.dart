@@ -23,6 +23,15 @@ class LoginScreenState extends ConsumerState<LoginScreenWidget> {
   Widget build(BuildContext context) {
     final profileProvider = ref.watch(profileNotifier.notifier);
 
+    void addError(Column formColumn) {
+      formColumn.children.insert(
+          6,
+          const Center(
+              child: Text("Email or password are incorrect.",
+                  style:
+                      TextStyle(color: Colors.redAccent, fontSize: 18))));
+    }
+
     Column formColumn = Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -123,17 +132,10 @@ class LoginScreenState extends ConsumerState<LoginScreenWidget> {
       ],
     );
 
-    void addError() {
-      formColumn.children.insert(
-          6,
-          const Center(
-              child: Text("Email or password are incorrect.",
-                  style:
-                      TextStyle(color: Colors.redAccent, fontSize: 18))));
-    }
+    
 
     return Scaffold(
-      body: Form(key: _key, child: formColumn),
+      body: Form(key: _key, child: formColumn, ),
     );
   }
 }
