@@ -4,6 +4,7 @@ import 'package:croatia_explorer/layers/presentation/using_android/view/content/
 import 'package:croatia_explorer/layers/presentation/using_android/view/content/main/states/state_implementations/favourites_state.dart';
 import 'package:croatia_explorer/layers/presentation/using_android/view/content/main/states/state_implementations/profile_state.dart';
 import 'package:croatia_explorer/layers/presentation/using_android/view/content/main/states/state_implementations/sights_state.dart';
+import 'package:croatia_explorer/layers/presentation/using_android/view/content/main/states/state_implementations/social_network_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -34,6 +35,7 @@ class MainScreenWidgetState extends ConsumerState<MainScreenWidget> {
         SightsMain() => const HomeStateWidget(),
         FavouritesMain() => const FavouritesStateWidget(),
         ProfileMain() => const ProfileStateWidget(),
+        SocialMain() => SocialNetworkWidget(),
         ErrorMain() => Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -43,10 +45,15 @@ class MainScreenWidgetState extends ConsumerState<MainScreenWidget> {
 
       },
       bottomNavigationBar: BottomNavigationBar(
+        unselectedItemColor: Colors.black,
+        selectedItemColor: Colors.grey,
+        selectedLabelStyle: const TextStyle(color: Colors.grey),
+        unselectedLabelStyle: const TextStyle(color: Colors.black),
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
             BottomNavigationBarItem(icon: Icon(Icons.favorite), label: "Favorites"),
             BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+            BottomNavigationBarItem(icon: Icon(Icons.connect_without_contact), label: "Social")
           ],
           currentIndex: index,
           onTap: (int newIndex) {

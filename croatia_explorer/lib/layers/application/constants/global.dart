@@ -13,6 +13,7 @@ class GlobalConstants{
   static List<ScreenState> screenStateList = [
     SightsMain(),
     FavouritesMain(),
-    ProfileMain()
+    ProfileMain(),
+    SocialMain()
   ];
 }

@@ -63,6 +63,34 @@ class ProfileProvider extends StateNotifier<List<User>> {
       rethrow;
     }
   }
+
+  Future<UserCredential> signInUserGoogle() async {
+    UserCredential cred = await auth.signInWithPopup(GoogleAuthProvider());
+    if (cred.user != null) {
+      state.clear();
+      state.add(cred.user!);
+    }
+    return cred;
+  }
+
+  Future<UserCredential> signInUserGithub() async {
+    AuthProvider provider = GithubAuthProvider();
+    UserCredential cred = await auth.signInWithPopup(provider);
+    if (cred.user != null) {
+      state.clear();
+      state.add(cred.user!);
+    }
+    return cred;
+  }
+
+  Future<UserCredential> signInUserAnonymous() async {
+    UserCredential cred = await auth.signInAnonymously();
+    if (cred.user != null) {
+      state.clear();
+      state.add(cred.user!);
+    }
+    return cred;
+  }
 }
 
 final profileNotifier = StateNotifierProvider<ProfileProvider, List<User>>(

@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "33464896219",
+    "project_id": "authentforflutterproj",
+    "storage_bucket": "authentforflutterproj.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:33464896219:android:a0e53cb236775081149afe",
+        "android_client_info": {
+          "package_name": "com.example.croatia_explorer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "33464896219-ve56mg9u3o3lt6nls3b9ke74eifvbn61.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkjai50Zra0Tbt337oyVdVL_8D9yV_y54"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "33464896219-ve56mg9u3o3lt6nls3b9ke74eifvbn61.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:33464896219:android:1eed2828debf0aad149afe",
+        "android_client_info": {
+          "package_name": "com.example.nini"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "33464896219-ve56mg9u3o3lt6nls3b9ke74eifvbn61.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkjai50Zra0Tbt337oyVdVL_8D9yV_y54"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "33464896219-ve56mg9u3o3lt6nls3b9ke74eifvbn61.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

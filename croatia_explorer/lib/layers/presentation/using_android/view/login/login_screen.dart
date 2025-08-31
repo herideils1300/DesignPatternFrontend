@@ -19,11 +19,23 @@ class LoginScreenState extends ConsumerState<LoginScreenWidget> {
   final GlobalKey<FormState> _key = GlobalKey<FormState>();
   final StoredCredentials creds = StoredCredentials();
 
+  void addError(Column formColumn) {
+    setState(() {
+      formColumn.children.insert(
+          6,
+          const Center(
+              child: Text("Email or password are incorrect.",
+                  style: TextStyle(color: Colors.redAccent, fontSize: 18))));
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final profileProvider = ref.watch(profileNotifier.notifier);
 
-    Column formColumn = Column(
+    late Column formColumn;
+
+    formColumn = Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -73,21 +85,134 @@ class LoginScreenState extends ConsumerState<LoginScreenWidget> {
                   textAlign: TextAlign.end,
                   style: Theme.of(context).textTheme.displayMedium),
             )),
-        const Spacer(),
+        const SizedBox(
+          height: 20.0,
+        ),
+        Container(
+          margin: const EdgeInsets.only(bottom: 5.0, left: 12, right: 12),
+          child: ElevatedButton(
+              onPressed: () {
+                AsyncData<BuildContext> asyncContext =
+                    AsyncData<BuildContext>(context);
+                ref
+                    .read(profileNotifier.notifier)
+                    .signInUserAnonymous()
+                    .onError((error, stacktrace) {
+                  addError(formColumn);
+                  throw error!;
+                }).then((value) {
+                  if (value.user != null) {
+                    Navigator.of(asyncContext.value).pushNamed("/home");
+                  }
+                });
+              },
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.black,
+                  foregroundColor: Colors.white,
+                  side: const BorderSide(color: Colors.black, width: 2.0)),
+              child: const Row(
+                spacing: 5.0,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.person, size: 20),
+                  Text(
+                    "Continue as a guest",
+                    style: TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.w700),
+                  ),
+                ],
+              )),
+        ),
+        Container(
+          margin: const EdgeInsets.only(bottom: 5.0, left: 12, right: 12),
+          child: ElevatedButton(
+              onPressed: () {
+                AsyncData<BuildContext> asyncContext =
+                    AsyncData<BuildContext>(context);
+                ref
+                    .read(profileNotifier.notifier)
+                    .signInUserGoogle()
+                    .onError((error, stacktrace) {
+                  addError(formColumn);
+                  throw error!;
+                }).then((value) {
+                  if (value.user != null) {
+                    Navigator.of(asyncContext.value).pushNamed("/home");
+                  }
+                });
+              },
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                  side: const BorderSide(color: Colors.black, width: 2.0)),
+              child: Row(
+                spacing: 5.0,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.network(
+                    "https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png",
+                    width: 30,
+                    height: 30,
+                  ),
+                  const Text(
+                    "Log in with google account",
+                    style: TextStyle(
+                        color: Colors.black, fontWeight: FontWeight.w700),
+                  ),
+                ],
+              )),
+        ),
+        Container(
+          margin: const EdgeInsets.only(bottom: 0.0, left: 12, right: 12),
+          child: ElevatedButton(
+              onPressed: () {
+                AsyncData<BuildContext> asyncContext =
+                    AsyncData<BuildContext>(context);
+                ref
+                    .read(profileNotifier.notifier)
+                    .signInUserGoogle()
+                    .onError((error, stacktrace) {
+                  addError(formColumn);
+                  throw error!;
+                }).then((value) {
+                  if (value.user != null) {
+                    Navigator.of(asyncContext.value).pushNamed("/home");
+                  }
+                });
+              },
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                  side: const BorderSide(color: Colors.black, width: 2.0)),
+              child: Row(
+                spacing: 5.0,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.network(
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmrGmeBv3SOLSKz6OlTVlVYkfH9_W3BBgdrA&s",
+                    width: 20,
+                    height: 20,
+                  ),
+                  const Text(
+                    "Log in with github account",
+                    style: TextStyle(
+                        color: Colors.black, fontWeight: FontWeight.w700),
+                  ),
+                ],
+              )),
+        ),
         ButtonWidget(
           onPressed: () async {
             // if (_key.currentState!.validate()) {
             //   _key.currentState!.save();
             //   profileProvider.store(creds);
-              AsyncData contextAsync = AsyncData<BuildContext>(context);
+            AsyncData contextAsync = AsyncData<BuildContext>(context);
             //   try {
             //     await profileProvider.signInUser();
             //     if (contextAsync.hasValue && !contextAsync.isLoading) {
-                  Navigator.pushNamed(contextAsync.value, "/home");
+            Navigator.pushNamed(contextAsync.value, "/home");
             //     }
             //   } catch (e) {
             //     _key.currentState!.reset();
-                
+
             //   }
             // }
           },
@@ -124,17 +249,8 @@ class LoginScreenState extends ConsumerState<LoginScreenWidget> {
       ],
     );
 
-    void addError() {
-      formColumn.children.insert(
-          6,
-          const Center(
-              child: Text("Email or password are incorrect.",
-                  style:
-                      TextStyle(color: Colors.redAccent, fontSize: 18))));
-    }
-
     return Scaffold(
-      body: Form(key: _key, child: formColumn),
+      body: Form(key: _key, child: SingleChildScrollView(child: formColumn)),
     );
   }
 }

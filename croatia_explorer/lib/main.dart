@@ -15,7 +15,8 @@ void main() async {
       apiKey: "AIzaSyDHasrfGg-jAoGhxhn3tZIr31rCL2_7cxE",
       appId: "1:33464896219:android:a0e53cb236775081149afe",
       messagingSenderId: "33464896219",
-      projectId: "authentforflutterproj");
+      projectId: "authentforflutterproj",
+      authDomain: "authentforflutterproj.firebaseapp.com");
   await Firebase.initializeApp(options: options);
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const ProviderScope(child: MyApp()));

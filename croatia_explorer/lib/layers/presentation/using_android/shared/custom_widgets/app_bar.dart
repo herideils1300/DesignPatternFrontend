@@ -31,6 +31,9 @@ AppBar? switchNameAppBar(BuildContext context, int index){
     case 2:{
       return null;
     }
+    case 3:{
+      return null;
+    }
   }
 
   throw Exception("The index is out of bounds.");

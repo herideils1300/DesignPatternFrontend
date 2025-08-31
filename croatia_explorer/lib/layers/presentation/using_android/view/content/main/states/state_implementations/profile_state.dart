@@ -55,6 +55,12 @@ class _ProfileState extends ConsumerState<ProfileStateWidget> {
       return names;
     }
 
+    if(profile.isAnonymous){
+      return Center(
+        child: Text("Your account is anonymous.", style: Theme.of(context).textTheme.displayMedium, textAlign: TextAlign.center)
+      );
+    }
+
     return Column(
       children: [
         Container(

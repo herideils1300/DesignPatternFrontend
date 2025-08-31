@@ -3,7 +3,6 @@ import 'package:croatia_explorer/layers/presentation/using_android/providers/sig
 import 'package:croatia_explorer/layers/presentation/using_android/shared/custom_widgets/custom_cards.dart';
 import 'package:croatia_explorer/layers/presentation/using_android/shared/custom_widgets/image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lottie/lottie.dart';
 

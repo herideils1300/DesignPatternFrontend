@@ -16,6 +16,10 @@ class ProfileMain extends ScreenState {
   ProfileMain();
 }
 
+class SocialMain extends ScreenState{
+  SocialMain();
+}
+
 class ErrorMain extends ScreenState {
   String error;
 
