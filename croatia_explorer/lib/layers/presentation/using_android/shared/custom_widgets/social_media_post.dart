@@ -15,7 +15,7 @@ class SocialMediaPost extends ConsumerWidget {
             direction: Axis.horizontal,
             children: post.images
                 .map((image) => Image.memory(
-                      image,
+                      image.image,
                       fit: BoxFit.cover,
                     ))
                 .toList()),

@@ -14,19 +14,20 @@ class SocialMediaFuture extends ConsumerStatefulWidget {
 class SocialMediaFutureState extends ConsumerState<SocialMediaFuture> {
   @override
   Widget build(BuildContext context) {
-    PostsProvider postsNotifier =
-        ref.watch(socialProvider.notifier) as PostsProvider;
+    PostsProvider postsNotifier = ref.watch(socialProvider.notifier);
     return FutureBuilder(
         future: postsNotifier.getAllPosts(),
         builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return ListView.builder(itemBuilder: (context, index) {
-              return SocialMediaPost(post: snapshot.data![index]);
-            });
-          } else if (snapshot.hasData && snapshot.data!.isEmpty) {
+          if (snapshot.hasData && snapshot.data!.isEmpty) {
             return Center(
                 child: Text("No posts yet!",
                     style: Theme.of(context).textTheme.displayMedium));
+          } else if (snapshot.hasData) {
+            return ListView.builder(
+                itemCount: snapshot.data!.length,
+                itemBuilder: (context, index) {
+                  return SocialMediaPost(post: snapshot.data![index]);
+                });
           } else if (snapshot.hasError) {
             return Center(
                 child: Text("Error happend.",

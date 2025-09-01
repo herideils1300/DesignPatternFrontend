@@ -1,5 +1,7 @@
 import 'package:croatia_explorer/layers/application/clients/abstract/posts_client.dart';
+import 'package:croatia_explorer/layers/data/dto/image_dto.dart';
 import 'package:croatia_explorer/layers/data/dto/post_dto.dart';
+import 'package:croatia_explorer/layers/domain/image.dart';
 import 'package:croatia_explorer/layers/domain/post.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -21,7 +23,8 @@ class PostsProvider extends StateNotifier<List<Post>> {
       return Post(
           uid: element.uid,
           description: element.description,
-          images: element.images,
+          images:
+              element.images.map((image) => ImageModel.fromDto(image)).toList(),
           hashtags: element.hashtags);
     }).toList();
 
@@ -33,12 +36,15 @@ class PostsProvider extends StateNotifier<List<Post>> {
         id: 0,
         uid: post.uid,
         description: post.description,
-        images: post.images,
+        images: post.images
+            .map((model) => ImageDto(0, model.index, model.image, model.width,
+                model.height, model.type))
+            .toList(),
         hashtags: post.hashtags));
     return dto;
   }
 }
 
-StateNotifierProvider socialProvider =
+StateNotifierProvider<PostsProvider, List<Post>> socialProvider =
     StateNotifierProvider<PostsProvider, List<Post>>(
         (ref) => PostsProvider([]));

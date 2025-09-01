@@ -1,9 +1,12 @@
 import 'dart:typed_data';
 
+import 'package:croatia_explorer/layers/domain/image.dart';
+import 'package:flutter/material.dart';
+
 class Post {
   String uid;
   String description;
-  List<Uint8List> images;
+  List<ImageModel> images;
   List<String> hashtags;
 
 

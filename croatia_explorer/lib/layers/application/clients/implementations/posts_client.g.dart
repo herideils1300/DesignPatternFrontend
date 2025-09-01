@@ -14,7 +14,7 @@ class _PostsClient implements PostsClient {
     this.baseUrl,
     this.errorLogger,
   }) {
-    baseUrl ??= 'http://localhost:8081';
+    baseUrl ??= 'http://localhost:5121';
   }
 
   final Dio _dio;

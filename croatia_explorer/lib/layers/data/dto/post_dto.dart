@@ -1,10 +1,11 @@
-import 'dart:typed_data';
+
+import 'package:croatia_explorer/layers/data/dto/image_dto.dart';
 
 class PostDto {
   int id;
   String uid;
   String description;
-  List<Uint8List> images;
+  List<ImageDto> images;
   List<String> hashtags;
 
   PostDto({
@@ -29,8 +30,8 @@ class PostDto {
       'uid' : uid,
       'description' : description,
       'images' : images.map((element){
-        
-      }),
+        return element.toJson();
+      }).toList(),
       'hashtags' : hashtags,
     };
   }

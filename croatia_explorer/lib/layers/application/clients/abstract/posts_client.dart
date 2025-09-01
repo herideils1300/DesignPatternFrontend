@@ -5,7 +5,7 @@ import 'package:retrofit/error_logger.dart';
 
 part '../implementations/posts_client.g.dart';
 
-@RestApi(baseUrl: "http://localhost:8081")
+@RestApi(baseUrl: "http://localhost:5121")
 abstract class PostsClient {
 
   factory PostsClient(Dio dio) = _PostsClient;
